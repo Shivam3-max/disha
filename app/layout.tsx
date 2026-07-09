@@ -23,6 +23,8 @@ export const metadata: Metadata = {
     "Diagnose your business, work through practical frameworks, and leave with an action plan. Built for business owners and students.",
 };
 
+const PAARTH_URL = process.env.NEXT_PUBLIC_PAARTH_URL || "http://127.0.0.1:3690";
+
 export default function RootLayout({
   children,
 }: Readonly<{ children: React.ReactNode }>) {
@@ -64,6 +66,12 @@ export default function RootLayout({
               >
                 My plan
               </Link>
+              <a
+                href={PAARTH_URL}
+                className="hidden text-ink-faint hover:text-vermillion md:inline"
+              >
+                Paarth
+              </a>
             </nav>
           </div>
         </header>
@@ -76,6 +84,9 @@ export default function RootLayout({
             <p className="text-xs text-ink-faint">
               Your entries are saved only in your browser. Nothing is uploaded.
             </p>
+            <a href={PAARTH_URL} className="text-xs text-vermillion underline">
+              Back to Paarth
+            </a>
           </div>
         </footer>
       </body>
