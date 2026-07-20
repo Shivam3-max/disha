@@ -42,21 +42,27 @@ export default function RootLayout({
                 business clarity ledger
               </span>
             </Link>
-            <nav className="flex items-center gap-4 text-sm sm:gap-5">
-              <Link href="/checkup" className="hidden hover:text-vermillion sm:inline">
+            <nav className="flex items-center gap-3 text-sm sm:gap-4">
+              <Link href="/checkup" className="hidden hover:text-vermillion lg:inline">
                 Health checkup
               </Link>
-              <Link href="/journeys" className="hover:text-vermillion">
+              <Link href="/journeys" className="hidden hover:text-vermillion md:inline">
                 Journeys
               </Link>
               <Link href="/tools" className="hover:text-vermillion">
                 Tools
               </Link>
-              <Link href="/frameworks" className="hidden hover:text-vermillion sm:inline">
+              <Link href="/frameworks" className="hidden hover:text-vermillion lg:inline">
                 Frameworks
               </Link>
               <Link href="/learn" className="hover:text-vermillion">
                 Learn
+              </Link>
+              <Link href="/knowledge" className="hover:text-vermillion">
+                Knowledge
+              </Link>
+              <Link href="/search" className="hover:text-vermillion" aria-label="Search">
+                Search
               </Link>
               <Link
                 href="/plan"

@@ -3,6 +3,9 @@ import { TOOLS } from "@/lib/registry";
 import { WORKSHEETS } from "@/lib/worksheets";
 import { JOURNEYS } from "@/lib/journeys";
 import { LEARN_DAYS } from "@/lib/learn";
+import { INDUSTRIES } from "@/lib/industries";
+import { STRATEGIES } from "@/lib/strategies";
+import { CASE_STUDIES } from "@/lib/caseStudies";
 
 const ENTRY_POINTS = [
   {
@@ -34,6 +37,12 @@ const ENTRY_POINTS = [
     label: "Learn mode",
     desc: "Foundations, the full flagship program, and quick-fire booster days — with quizzes that track what you still need to review.",
     stat: `${LEARN_DAYS.length} lessons · 3 tracks`,
+  },
+  {
+    href: "/knowledge",
+    label: "Knowledge bank",
+    desc: "Industry playbooks, a global strategy atlas, real case studies, a glossary, templates, and a compliance quick-reference.",
+    stat: `${INDUSTRIES.length} industries · ${STRATEGIES.length} strategies · ${CASE_STUDIES.length} case studies`,
   },
 ];
 
@@ -105,7 +114,7 @@ export default function Home() {
       </section>
 
       <section className="pb-20">
-        <p className="rule-label mb-2">five ways in</p>
+        <p className="rule-label mb-2">six ways in</p>
         <h2 className="font-display mb-8 text-3xl font-semibold md:text-4xl">
           Wherever you start, it all lands in one plan
         </h2>
