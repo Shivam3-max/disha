@@ -10,6 +10,14 @@ import { MoatBuilder } from "@/components/tools/MoatBuilder";
 import { AdvantageTest } from "@/components/tools/AdvantageTest";
 import { HiringScorecard } from "@/components/tools/HiringScorecard";
 import { GoalArrow } from "@/components/tools/GoalArrow";
+import { BusinessModelCanvas } from "@/components/tools/BusinessModelCanvas";
+import { BreakEvenCalculator } from "@/components/tools/BreakEvenCalculator";
+import { CapTableBuilder } from "@/components/tools/CapTableBuilder";
+import { HiringPipeline } from "@/components/tools/HiringPipeline";
+import { ContentCalendar } from "@/components/tools/ContentCalendar";
+import { CompetitorMatrix } from "@/components/tools/CompetitorMatrix";
+import { CashFlowSimulator } from "@/components/tools/CashFlowSimulator";
+import { SwotBuilder } from "@/components/tools/SwotBuilder";
 
 const COMPONENTS: Record<string, React.ComponentType> = {
   "revenue-multiplier": RevenueMultiplier,
@@ -22,6 +30,14 @@ const COMPONENTS: Record<string, React.ComponentType> = {
   "advantage-test": AdvantageTest,
   "hiring-scorecard": HiringScorecard,
   "goal-arrow": GoalArrow,
+  "business-model-canvas": BusinessModelCanvas,
+  "break-even-calculator": BreakEvenCalculator,
+  "cap-table-builder": CapTableBuilder,
+  "hiring-pipeline": HiringPipeline,
+  "content-calendar": ContentCalendar,
+  "competitor-matrix": CompetitorMatrix,
+  "cash-flow-simulator": CashFlowSimulator,
+  "swot-builder": SwotBuilder,
 };
 
 export function generateStaticParams() {

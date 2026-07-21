@@ -1,6 +1,7 @@
 import type { Strategy } from "./knowledgeTypes";
+import { STRATEGIES_2 } from "./strategies2";
 
-export const STRATEGIES: Strategy[] = [
+export const STRATEGIES_1: Strategy[] = [
   // ---------- GROWTH & EXPANSION ----------
   {
     slug: "blitzscaling",
@@ -702,3 +703,5 @@ export const STRATEGIES: Strategy[] = [
     relatedLink: { kind: "framework", slug: "working-capital-allocator", label: "Working capital allocator" },
   },
 ];
+
+export const STRATEGIES: Strategy[] = [...STRATEGIES_1, ...STRATEGIES_2];

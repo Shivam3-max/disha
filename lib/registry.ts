@@ -2,7 +2,7 @@ export type ToolMeta = {
   slug: string;
   no: string;
   title: string;
-  category: "Grow revenue" | "Fix money" | "Beat competition" | "Build the team" | "Lead yourself";
+  category: "Grow revenue" | "Fix money" | "Beat competition" | "Build the team" | "Lead yourself" | "Plan strategy";
   question: string;
   description: string;
   minutes: number;
@@ -109,6 +109,86 @@ export const TOOLS: ToolMeta[] = [
       "A guided sequence that moves you from vague ambition to a measurable goal, an honest current reality, and the next three actions.",
     minutes: 10,
   },
+  {
+    slug: "business-model-canvas",
+    no: "11",
+    title: "Business model canvas",
+    category: "Plan strategy",
+    question: "Does my business actually hang together as one system?",
+    description:
+      "Nine blocks — partners, activities, resources, value, relationships, channels, segments, costs, revenue — filled in side by side so the gaps become obvious.",
+    minutes: 12,
+  },
+  {
+    slug: "break-even-calculator",
+    no: "12",
+    title: "Break-even calculator",
+    category: "Fix money",
+    question: "How many units do I need to sell before I stop losing money?",
+    description:
+      "Three numbers — fixed costs, price, and variable cost per unit — tell you exactly where the floor is.",
+    minutes: 4,
+  },
+  {
+    slug: "cap-table-builder",
+    no: "13",
+    title: "Cap table builder",
+    category: "Fix money",
+    question: "Who actually owns how much of this business?",
+    description:
+      "List every shareholder and their stake, then model how a new funding round dilutes everyone.",
+    minutes: 8,
+  },
+  {
+    slug: "hiring-pipeline",
+    no: "14",
+    title: "Hiring pipeline tracker",
+    category: "Build the team",
+    question: "Where is every candidate stuck right now?",
+    description:
+      "A living board — applied, screening, interview, offer, hired — that remembers your candidates between visits.",
+    minutes: 5,
+  },
+  {
+    slug: "content-calendar",
+    no: "15",
+    title: "Content calendar",
+    category: "Grow revenue",
+    question: "What am I actually publishing this month?",
+    description:
+      "A running pipeline of content pieces by platform and status, so ideas stop dying in a notes app.",
+    minutes: 6,
+  },
+  {
+    slug: "competitor-matrix",
+    no: "16",
+    title: "Competitor comparison matrix",
+    category: "Beat competition",
+    question: "Where do I actually beat each competitor, head to head?",
+    description:
+      "Score yourself and every competitor on the same attributes, side by side, and see exactly where you're winning or exposed.",
+    minutes: 8,
+  },
+  {
+    slug: "cash-flow-simulator",
+    no: "17",
+    title: "Cash flow simulator",
+    category: "Fix money",
+    question: "What does my cash position look like six months from now?",
+    description:
+      "A month-by-month table of revenue, costs and profit that keeps a running cumulative cash total as you fill it in.",
+    minutes: 10,
+  },
+  {
+    slug: "swot-builder",
+    no: "18",
+    title: "SWOT builder",
+    category: "Plan strategy",
+    question: "What do I actually know about my position, laid out honestly?",
+    description:
+      "The four-quadrant classic — strengths, weaknesses, opportunities, threats — built as a living list instead of a static box.",
+    minutes: 7,
+  },
 ];
 
 export const CATEGORIES = [
@@ -117,6 +197,7 @@ export const CATEGORIES = [
   "Beat competition",
   "Build the team",
   "Lead yourself",
+  "Plan strategy",
 ] as const;
 
 export function getTool(slug: string) {

@@ -1,6 +1,7 @@
 import type { Industry } from "./knowledgeTypes";
+import { INDUSTRIES_2 } from "./industries2";
 
-export const INDUSTRIES: Industry[] = [
+export const INDUSTRIES_1: Industry[] = [
   {
     slug: "fmcg-retail",
     name: "FMCG & retail",
@@ -37,7 +38,7 @@ export const INDUSTRIES: Industry[] = [
       "Underinvesting in trade relationships while overspending on consumer advertising.",
       "Ignoring regional taste differences and launching one national formula everywhere at once.",
     ],
-    caseStudySlugs: ["patanjali-fmcg-disruption", "dmart-cash-and-carry", "amul-cooperative-model", "titan-tanishq-trust", "haldirams-snack-empire", "ikea-india-adaptation"],
+    caseStudySlugs: ["patanjali-fmcg-disruption", "dmart-cash-and-carry", "amul-cooperative-model", "haldirams-snack-empire", "ikea-india-adaptation"],
     starterKit: [
       { kind: "tool", slug: "revenue-multiplier", label: "Revenue multiplier" },
       { kind: "tool", slug: "inventory-turns", label: "Inventory turns analyzer" },
@@ -80,7 +81,7 @@ export const INDUSTRIES: Industry[] = [
       "Depending entirely on one paid channel that can change algorithms or pricing overnight.",
       "Ignoring the cash conversion cycle and running out of working capital despite healthy-looking sales.",
     ],
-    caseStudySlugs: ["zomato-swiggy-funding-war", "boat-d2c-audio-brand"],
+    caseStudySlugs: ["zomato-swiggy-funding-war", "boat-d2c-audio-brand", "festive-sale-anchoring-ecommerce"],
     starterKit: [
       { kind: "tool", slug: "acquisition-cost", label: "Acquisition cost auditor" },
       { kind: "tool", slug: "customer-lifetime", label: "Customer lifetime value" },
@@ -126,6 +127,7 @@ export const INDUSTRIES: Industry[] = [
     caseStudySlugs: ["mcdonalds-india-localization"],
     starterKit: [
       { kind: "tool", slug: "revenue-multiplier", label: "Revenue multiplier" },
+      { kind: "tool", slug: "break-even-calculator", label: "Break-even calculator" },
       { kind: "framework", slug: "sop-builder", label: "SOP builder" },
       { kind: "framework", slug: "cx-touchpoints", label: "Experience touchpoint audit" },
       { kind: "journey", slug: "sales-have-stalled", label: "Sales have stalled journey" },
@@ -166,7 +168,7 @@ export const INDUSTRIES: Industry[] = [
       "Chasing just-in-time inventory savings without supplier reliability solid enough to support it.",
       "Competing on price alone without a cost structure or IP advantage that's actually hard to copy.",
     ],
-    caseStudySlugs: ["nokia-smartphone-fall", "kodak-digital-camera", "xiaomi-india-entry", "segway-failure", "fevicol-category-ownership"],
+    caseStudySlugs: ["nokia-smartphone-fall", "kodak-digital-camera", "xiaomi-india-entry", "segway-failure", "fevicol-category-ownership", "tata-jlr-acquisition-negotiation", "blendtec-will-it-blend-guerrilla"],
     starterKit: [
       { kind: "tool", slug: "inventory-turns", label: "Inventory turns analyzer" },
       { kind: "framework", slug: "sop-builder", label: "SOP builder" },
@@ -547,6 +549,7 @@ export const INDUSTRIES: Industry[] = [
     caseStudySlugs: ["consulting-value-based-pricing"],
     starterKit: [
       { kind: "tool", slug: "pricing-strategy", label: "Pricing strategy picker" },
+      { kind: "tool", slug: "business-model-canvas", label: "Business model canvas" },
       { kind: "framework", slug: "execution-scoreboard", label: "Execution scoreboard" },
       { kind: "framework", slug: "talent-engagement", label: "Engagement lift plan" },
       { kind: "journey", slug: "sales-have-stalled", label: "Sales have stalled journey" },
@@ -591,6 +594,7 @@ export const INDUSTRIES: Industry[] = [
       { kind: "tool", slug: "customer-lifetime", label: "Customer lifetime value" },
       { kind: "framework", slug: "nps-engine", label: "Recommendation score engine" },
       { kind: "tool", slug: "pricing-strategy", label: "Pricing strategy picker" },
+      { kind: "tool", slug: "business-model-canvas", label: "Business model canvas" },
       { kind: "journey", slug: "customers-dont-come-back", label: "Customers don't come back journey" },
     ],
   },
@@ -637,3 +641,5 @@ export const INDUSTRIES: Industry[] = [
     ],
   },
 ];
+
+export const INDUSTRIES: Industry[] = [...INDUSTRIES_1, ...INDUSTRIES_2];

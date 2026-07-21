@@ -104,6 +104,11 @@ export default function LearnIndex() {
       </div>
 
       <p className="mt-4 text-sm text-ink-soft">{TRACKS[activeTrack].description}</p>
+      {activeTrack === "flagship" && (
+        <Link href="/learn/flagship-schedule" className="mt-2 inline-block text-sm text-vermillion underline">
+          See the full 90-day day-by-day schedule →
+        </Link>
+      )}
 
       <div className="mt-6 space-y-3">
         {daysByTrack[activeTrack].map((d) => {

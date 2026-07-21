@@ -1,6 +1,7 @@
 import type { CaseStudy } from "./knowledgeTypes";
+import { CASE_STUDIES_2 } from "./caseStudies2";
 
-export const CASE_STUDIES: CaseStudy[] = [
+export const CASE_STUDIES_1: CaseStudy[] = [
   {
     slug: "patanjali-fmcg-disruption",
     title: "Patanjali's price-led disruption of Indian FMCG",
@@ -50,7 +51,7 @@ export const CASE_STUDIES: CaseStudy[] = [
     slug: "titan-tanishq-trust",
     title: "Titan and Tanishq's trust-building in gold jewellery",
     kind: "build",
-    industrySlug: "fmcg-retail",
+    industrySlug: "jewellery",
     strategySlug: "brand-moat",
     summary: "A jewellery retail brand transformed a traditionally opaque, trust-scarce category by introducing certified purity and transparent, fixed pricing.",
     story: [
@@ -385,3 +386,5 @@ export const CASE_STUDIES: CaseStudy[] = [
     lesson: "Even categories built on decades of relationship and informal credit norms can have room for a transparency-and-format-led competitor — the two models can coexist, serving buyers with genuinely different priorities rather than one fully displacing the other.",
   },
 ];
+
+export const CASE_STUDIES: CaseStudy[] = [...CASE_STUDIES_1, ...CASE_STUDIES_2];

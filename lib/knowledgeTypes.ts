@@ -37,7 +37,9 @@ export type StrategyCategory =
   | "Platform & network effects"
   | "Competitive moats & defense"
   | "Customer growth loops"
-  | "Operations & execution systems";
+  | "Operations & execution systems"
+  | "Pricing psychology & negotiation"
+  | "Guerrilla & attention marketing";
 
 export const STRATEGY_CATEGORIES: StrategyCategory[] = [
   "Growth & expansion",
@@ -47,6 +49,8 @@ export const STRATEGY_CATEGORIES: StrategyCategory[] = [
   "Competitive moats & defense",
   "Customer growth loops",
   "Operations & execution systems",
+  "Pricing psychology & negotiation",
+  "Guerrilla & attention marketing",
 ];
 
 export type Strategy = {
