@@ -18,10 +18,12 @@ const splineMono = Spline_Sans_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Disha — business clarity, one framework at a time",
+  title: "Disha - business clarity, one framework at a time",
   description:
     "Diagnose your business, work through practical frameworks, and leave with an action plan. Built for business owners and students.",
 };
+
+const PAARTH_URL = process.env.NEXT_PUBLIC_PAARTH_URL || "http://127.0.0.1:3690";
 
 export default function RootLayout({
   children,
@@ -70,6 +72,12 @@ export default function RootLayout({
               >
                 My plan
               </Link>
+              <a
+                href={PAARTH_URL}
+                className="hidden text-ink-faint hover:text-vermillion md:inline"
+              >
+                Paarth
+              </a>
             </nav>
           </div>
         </header>
@@ -77,11 +85,14 @@ export default function RootLayout({
         <footer className="no-print mt-20 border-t border-ink">
           <div className="mx-auto flex max-w-6xl flex-col gap-2 px-5 py-8 sm:flex-row sm:items-center sm:justify-between">
             <p className="rule-label">
-              Disha · practical business frameworks for owners and students
+              Disha - practical business frameworks for owners and students
             </p>
             <p className="text-xs text-ink-faint">
               Your entries are saved only in your browser. Nothing is uploaded.
             </p>
+            <a href={PAARTH_URL} className="text-xs text-vermillion underline">
+              Back to Paarth
+            </a>
           </div>
         </footer>
       </body>
