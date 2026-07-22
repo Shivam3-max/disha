@@ -36,7 +36,10 @@ export function removeEntry(slug: string) {
 export type CheckupResult = {
   savedAt: string;
   scores: Record<string, number>;
+  overall?: number;
 };
+
+const CHECKUP_HISTORY_KEY = "disha:checkup-history";
 
 export function loadCheckup(): CheckupResult | null {
   if (typeof window === "undefined") return null;
@@ -48,8 +51,20 @@ export function loadCheckup(): CheckupResult | null {
   }
 }
 
+export function loadCheckupHistory(): CheckupResult[] {
+  if (typeof window === "undefined") return [];
+  try {
+    return JSON.parse(localStorage.getItem(CHECKUP_HISTORY_KEY) ?? "[]");
+  } catch {
+    return [];
+  }
+}
+
 export function saveCheckup(result: CheckupResult) {
   localStorage.setItem(CHECKUP_KEY, JSON.stringify(result));
+  const history = loadCheckupHistory();
+  history.push(result);
+  localStorage.setItem(CHECKUP_HISTORY_KEY, JSON.stringify(history.slice(-24)));
 }
 
 const LEARN_KEY = "disha:learn";

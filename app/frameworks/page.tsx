@@ -1,7 +1,21 @@
+"use client";
+
+import { useMemo, useState } from "react";
 import Link from "next/link";
 import { WORKSHEETS, WS_CATEGORIES } from "@/lib/worksheets";
+import { FilterChips } from "@/components/FilterChips";
 
 export default function FrameworksIndex() {
+  const [category, setCategory] = useState("All");
+
+  const counts = useMemo(() => {
+    const c: Record<string, number> = {};
+    for (const cat of WS_CATEGORIES) c[cat] = WORKSHEETS.filter((w) => w.category === cat).length;
+    return c;
+  }, []);
+
+  const visibleCategories = category === "All" ? [...WS_CATEGORIES] : [category];
+
   return (
     <main className="mx-auto max-w-6xl px-5 py-14">
       <p className="rule-label mb-3">the full register</p>
@@ -14,7 +28,11 @@ export default function FrameworksIndex() {
         one and it saves straight into your action plan.
       </p>
 
-      {WS_CATEGORIES.map((cat) => {
+      <div className="mt-8">
+        <FilterChips options={[...WS_CATEGORIES]} active={category} onChange={setCategory} counts={counts} />
+      </div>
+
+      {visibleCategories.map((cat) => {
         const items = WORKSHEETS.filter((w) => w.category === cat);
         if (items.length === 0) return null;
         return (

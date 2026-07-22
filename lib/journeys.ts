@@ -1,3 +1,6 @@
+import { JOURNEYS_2 } from "./journeys2";
+import { JOURNEYS_3 } from "./journeys3";
+
 export type JourneyStep = {
   kind: "tool" | "framework";
   slug: string;
@@ -5,17 +8,44 @@ export type JourneyStep = {
   why: string;
 };
 
+export type JourneyCategory =
+  | "Sales & revenue"
+  | "Marketing & visibility"
+  | "Pricing & profit"
+  | "Money & cash flow"
+  | "Customers & retention"
+  | "Team & hiring"
+  | "Operations & systems"
+  | "Competition & strategy"
+  | "Growth & expansion"
+  | "Founder & personal";
+
+export const JOURNEY_CATEGORIES: JourneyCategory[] = [
+  "Sales & revenue",
+  "Marketing & visibility",
+  "Pricing & profit",
+  "Money & cash flow",
+  "Customers & retention",
+  "Team & hiring",
+  "Operations & systems",
+  "Competition & strategy",
+  "Growth & expansion",
+  "Founder & personal",
+];
+
 export type Journey = {
   slug: string;
+  category: JourneyCategory;
   symptom: string;
   title: string;
   description: string;
   steps: JourneyStep[];
 };
 
-export const JOURNEYS: Journey[] = [
+export const JOURNEYS_1: Journey[] = [
   {
     slug: "sales-have-stalled",
+    category: "Sales & revenue",
     symptom: "“Sales have gone flat and I don’t know why.”",
     title: "Sales have stalled",
     description:
@@ -30,6 +60,7 @@ export const JOURNEYS: Journey[] = [
   },
   {
     slug: "cash-is-always-tight",
+    category: "Money & cash flow",
     symptom: "“I'm profitable on paper but the bank balance never agrees.”",
     title: "Cash is always tight",
     description:
@@ -44,6 +75,7 @@ export const JOURNEYS: Journey[] = [
   },
   {
     slug: "customers-dont-come-back",
+    category: "Customers & retention",
     symptom: "“People try me once and I never see them again.”",
     title: "Customers don't come back",
     description:
@@ -58,6 +90,7 @@ export const JOURNEYS: Journey[] = [
   },
   {
     slug: "competitor-could-copy-me",
+    category: "Competition & strategy",
     symptom: "“A well-funded competitor could copy my whole business tomorrow.”",
     title: "A competitor could copy me tomorrow",
     description:
@@ -72,6 +105,7 @@ export const JOURNEYS: Journey[] = [
   },
   {
     slug: "cant-find-good-people",
+    category: "Team & hiring",
     symptom: "“I can't find good people, and the ones I hire don't stay.”",
     title: "Can't find or keep good people",
     description:
@@ -86,6 +120,7 @@ export const JOURNEYS: Journey[] = [
   },
   {
     slug: "business-cant-run-without-me",
+    category: "Operations & systems",
     symptom: "“If I take a week off, everything stalls.”",
     title: "The business doesn't run without me",
     description:
@@ -100,6 +135,7 @@ export const JOURNEYS: Journey[] = [
   },
   {
     slug: "want-to-grow-safely",
+    category: "Growth & expansion",
     symptom: "“I want to grow, but I'm scared of breaking what already works.”",
     title: "Ready to grow, afraid to break it",
     description:
@@ -114,6 +150,7 @@ export const JOURNEYS: Journey[] = [
   },
   {
     slug: "busy-but-not-moving",
+    category: "Founder & personal",
     symptom: "“I'm busy every single day, but the business isn't actually moving forward.”",
     title: "Busy all day, no real progress",
     description:
@@ -127,6 +164,8 @@ export const JOURNEYS: Journey[] = [
     ],
   },
 ];
+
+export const JOURNEYS: Journey[] = [...JOURNEYS_1, ...JOURNEYS_2, ...JOURNEYS_3];
 
 export function getJourney(slug: string) {
   return JOURNEYS.find((j) => j.slug === slug);

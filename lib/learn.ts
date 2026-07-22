@@ -54,9 +54,15 @@ export const TRACKS: Record<Track, { title: string; description: string; unitLab
 
 export const DIMENSION_TO_DAY: Record<string, string> = {
   Profitability: "strategy-for-success",
-  "Customer engine": "market-research-product",
+  "Sales engine": "sales-that-doesnt-feel-like-selling",
+  "Marketing & brand": "marketing-and-brand",
+  "Customer retention": "market-research-product",
   "Cash discipline": "operations-and-expansion",
   "Competitive moat": "solo-to-entrepreneur",
+  "Team & people": "hiring-and-hr",
+  "Systems & operations": "productivity-and-delegation",
+  // legacy 5-dimension labels from earlier checkups still resolve
+  "Customer engine": "market-research-product",
   "Team & self": "hiring-and-hr",
 };
 

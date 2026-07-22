@@ -1,7 +1,25 @@
+"use client";
+
+import { useMemo, useState } from "react";
 import Link from "next/link";
 import { TEMPLATES } from "@/lib/templates";
+import { FilterChips } from "@/components/FilterChips";
 
 export default function TemplatesIndex() {
+  const [category, setCategory] = useState("All");
+
+  const allCategories = useMemo(
+    () => Array.from(new Set(TEMPLATES.map((t) => t.category))).sort(),
+    [],
+  );
+  const counts = useMemo(() => {
+    const c: Record<string, number> = {};
+    for (const cat of allCategories) c[cat] = TEMPLATES.filter((t) => t.category === cat).length;
+    return c;
+  }, [allCategories]);
+
+  const visible = category === "All" ? TEMPLATES : TEMPLATES.filter((t) => t.category === category);
+
   return (
     <main className="mx-auto max-w-4xl px-5 py-14">
       <p className="rule-label mb-3">fill in, print, done</p>
@@ -11,8 +29,12 @@ export default function TemplatesIndex() {
         advice — have a professional review anything binding before you sign it.
       </p>
 
-      <div className="mt-10 grid gap-4 sm:grid-cols-2">
-        {TEMPLATES.map((t) => (
+      <div className="mt-8">
+        <FilterChips options={allCategories} active={category} onChange={setCategory} counts={counts} />
+      </div>
+
+      <div className="mt-8 grid gap-4 sm:grid-cols-2">
+        {visible.map((t) => (
           <Link
             key={t.slug}
             href={`/templates/${t.slug}`}

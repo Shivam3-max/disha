@@ -1,8 +1,22 @@
+"use client";
+
+import { useMemo, useState } from "react";
 import Link from "next/link";
 import { STRATEGIES } from "@/lib/strategies";
 import { STRATEGY_CATEGORIES } from "@/lib/knowledgeTypes";
+import { FilterChips } from "@/components/FilterChips";
 
 export default function StrategiesIndex() {
+  const [category, setCategory] = useState("All");
+
+  const counts = useMemo(() => {
+    const c: Record<string, number> = {};
+    for (const cat of STRATEGY_CATEGORIES) c[cat] = STRATEGIES.filter((s) => s.category === cat).length;
+    return c;
+  }, []);
+
+  const visibleCategories = category === "All" ? [...STRATEGY_CATEGORIES] : [category];
+
   return (
     <main className="mx-auto max-w-6xl px-5 py-14">
       <p className="rule-label mb-3">the global strategy atlas</p>
@@ -14,8 +28,13 @@ export default function StrategiesIndex() {
         when to reach for it, and when it backfires.
       </p>
 
-      {STRATEGY_CATEGORIES.map((cat) => {
+      <div className="mt-8">
+        <FilterChips options={[...STRATEGY_CATEGORIES]} active={category} onChange={setCategory} counts={counts} />
+      </div>
+
+      {visibleCategories.map((cat) => {
         const items = STRATEGIES.filter((s) => s.category === cat);
+        if (items.length === 0) return null;
         return (
           <div key={cat} className="mt-12">
             <h2 className="rule-label mb-3 border-b border-ink pb-2 !text-sm text-ink">

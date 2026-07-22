@@ -1,7 +1,21 @@
+"use client";
+
+import { useMemo, useState } from "react";
 import Link from "next/link";
 import { TOOLS, CATEGORIES } from "@/lib/registry";
+import { FilterChips } from "@/components/FilterChips";
 
 export default function ToolsIndex() {
+  const [category, setCategory] = useState("All");
+
+  const counts = useMemo(() => {
+    const c: Record<string, number> = {};
+    for (const cat of CATEGORIES) c[cat] = TOOLS.filter((t) => t.category === cat).length;
+    return c;
+  }, []);
+
+  const visibleCategories = category === "All" ? [...CATEGORIES] : [category];
+
   return (
     <main className="mx-auto max-w-6xl px-5 py-14">
       <p className="rule-label mb-3">calculators & scorecards</p>
@@ -13,8 +27,13 @@ export default function ToolsIndex() {
         target, a ranking, a rupee figure — not a lecture.
       </p>
 
-      {CATEGORIES.map((cat) => {
+      <div className="mt-8">
+        <FilterChips options={[...CATEGORIES]} active={category} onChange={setCategory} counts={counts} />
+      </div>
+
+      {visibleCategories.map((cat) => {
         const tools = TOOLS.filter((t) => t.category === cat);
+        if (tools.length === 0) return null;
         return (
           <div key={cat} className="mt-10">
             <h2 className="rule-label mb-3 border-b border-ink pb-2 !text-sm text-ink">
