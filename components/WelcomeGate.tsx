@@ -46,7 +46,7 @@ export default function WelcomeGate({ children }: { children: ReactNode }) {
     <>
       {children}
       {open && (
-        <div className="fixed inset-0 z-[100] flex items-center justify-center overflow-y-auto bg-ink/75 px-4 py-6 backdrop-blur-sm">
+        <div className="fixed inset-0 z-[100] flex items-start justify-center overflow-y-auto bg-ink/75 px-4 py-4 backdrop-blur-sm sm:py-6 md:items-center">
           <div
             ref={dialogRef}
             role="dialog"
@@ -54,18 +54,25 @@ export default function WelcomeGate({ children }: { children: ReactNode }) {
             aria-labelledby="welcome-title"
             aria-describedby="welcome-description"
             onKeyDown={keepDialogOpen}
-            className="my-auto w-full max-w-xl"
+            className="my-auto grid w-full max-w-5xl grid-cols-1 items-stretch gap-0 md:grid-cols-[0.9fr_1.1fr]"
           >
-            <div className="mb-4 text-center text-paper">
-              <p className="rule-label !text-paper/75">Welcome to Disha</p>
-              <h1 id="welcome-title" className="font-display mt-2 text-3xl font-semibold leading-tight sm:text-4xl">
-                100+ frameworks to grow your business or build your business mind.
+            <div className="flex flex-col justify-center bg-ink px-6 py-6 text-paper sm:px-9 sm:py-8 md:px-10">
+              <p className="rule-label !text-paper/70">Welcome to Disha</p>
+              <h1 id="welcome-title" className="font-display mt-3 text-3xl font-semibold leading-[1.08] sm:text-4xl">
+                100+ frameworks for your next move.
               </h1>
-              <p id="welcome-description" className="mx-auto mt-2 max-w-lg text-sm leading-relaxed text-paper/80">
-                Get access to practical calculators, strategies, frameworks, and lessons. Tell us a little about yourself to get started.
+              <p id="welcome-description" className="mt-4 max-w-lg text-sm leading-relaxed text-paper/80">
+                Grow your business or build your business mind with practical calculators, strategies, frameworks, and lessons.
               </p>
+              <div className="mt-5 flex flex-wrap gap-2 text-xs text-paper/90">
+                {["Calculators", "Strategies", "Frameworks", "Lessons"].map((item) => (
+                  <span key={item} className="border border-paper/35 px-2.5 py-1.5">{item}</span>
+                ))}
+              </div>
             </div>
-            <WelcomeForm onSuccess={() => setOpen(false)} />
+            <div className="md:max-h-[min(86dvh,820px)] md:overflow-y-auto">
+              <WelcomeForm onSuccess={() => setOpen(false)} />
+            </div>
           </div>
         </div>
       )}
