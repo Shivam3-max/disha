@@ -88,7 +88,7 @@ export default function RootLayout({
               Disha - practical business frameworks for owners and students
             </p>
             <p className="text-xs text-ink-faint">
-              Your entries are saved only in your browser. Nothing is uploaded.
+              Intake details are sent securely to the Disha team.
             </p>
             <a href={PAARTH_URL} className="text-xs text-vermillion underline">
               Back to Paarth

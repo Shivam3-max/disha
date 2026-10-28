@@ -1,4 +1,5 @@
 import Link from "next/link";
+import WelcomeForm from "@/components/WelcomeForm";
 import { TOOLS } from "@/lib/registry";
 import { WORKSHEETS } from "@/lib/worksheets";
 import { JOURNEYS } from "@/lib/journeys";
@@ -49,38 +50,36 @@ const ENTRY_POINTS = [
 export default function Home() {
   return (
     <main className="mx-auto max-w-6xl px-5">
-      <section className="grid gap-10 py-16 md:grid-cols-[1.4fr_1fr] md:py-24">
+      <section className="grid items-center gap-10 py-10 md:grid-cols-[1fr_0.9fr] md:gap-14 md:py-16">
         <div className="rise">
-          <p className="rule-label mb-4">entry no. 001 · why this exists</p>
-          <h1 className="font-display text-5xl font-semibold leading-[1.05] tracking-tight md:text-7xl">
-            Business knowledge is useless until it&apos;s{" "}
-            <em className="text-vermillion not-italic underline decoration-2 underline-offset-8">
-              applied to yours.
-            </em>
+          <p className="rule-label mb-4">A practical starting point for your next step</p>
+          <h1 className="font-display text-5xl font-semibold leading-[1.04] tracking-tight md:text-7xl">
+            100+ frameworks to{" "}
+            <em className="text-vermillion not-italic underline decoration-2 underline-offset-8">grow your business</em>{" "}
+            or build your business mind.
           </h1>
           <p className="mt-6 max-w-xl text-lg leading-relaxed text-ink-soft">
-            Disha turns proven business frameworks into working tools. Diagnose
-            your business in five minutes, follow a guided path for the
-            problem you actually have, and leave every session with entries
-            in your own action plan.
+            Get hands-on with practical calculators, proven strategies, guided
+            frameworks, and lessons that turn business questions into your next
+            clear action. Built for business owners and students.
           </p>
-          <div className="mt-8 flex flex-wrap gap-4">
-            <Link href="/checkup" className="btn-ink px-6 py-3 font-medium">
-              Start the health checkup →
-            </Link>
-            <Link href="/journeys" className="btn-outline px-6 py-3 font-medium">
-              Start from a problem
-            </Link>
+          <div className="mt-8 grid max-w-xl gap-3 sm:grid-cols-2">
+            {[
+              ["Calculate", "Pricing, cash flow, break-even, and more"],
+              ["Find a strategy", "Choose a path for the challenge at hand"],
+              ["Use a framework", "Turn proven ideas into practical steps"],
+              ["Keep learning", "Build confidence with guided lessons"],
+            ].map(([title, description]) => (
+              <div key={title} className="border-l-2 border-vermillion pl-3">
+                <p className="font-display text-lg font-semibold">{title}</p>
+                <p className="text-sm text-ink-soft">{description}</p>
+              </div>
+            ))}
           </div>
+          <p className="rule-label mt-8">{TOOLS.length} tools · {WORKSHEETS.length} worksheets · made for real decisions</p>
         </div>
-        <div className="rise rise-2 hidden items-center justify-center md:flex">
-          <div className="stamp h-44 w-44 flex-col gap-1 text-center text-xs">
-            <span className="text-2xl font-semibold">
-              {TOOLS.length + WORKSHEETS.length}
-            </span>
-            <span>tools & frameworks</span>
-            <span>· est. 2026 ·</span>
-          </div>
+        <div className="rise rise-2">
+          <WelcomeForm />
         </div>
       </section>
 

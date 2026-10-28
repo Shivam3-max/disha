@@ -115,6 +115,7 @@ input[type="range"]::-webkit-slider-thumb {
 }
 
 input[type="text"],
+input[type="email"],
 input[type="number"],
 textarea,
 select {
@@ -126,6 +127,7 @@ select {
   outline: none;
 }
 input[type="text"]:focus,
+input[type="email"]:focus,
 input[type="number"]:focus,
 textarea:focus,
 select:focus {
