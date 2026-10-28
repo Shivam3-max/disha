@@ -1,5 +1,4 @@
 import Link from "next/link";
-import WelcomeForm from "@/components/WelcomeForm";
 import { TOOLS } from "@/lib/registry";
 import { WORKSHEETS } from "@/lib/worksheets";
 import { JOURNEYS } from "@/lib/journeys";
@@ -78,8 +77,14 @@ export default function Home() {
           </div>
           <p className="rule-label mt-8">{TOOLS.length} tools · {WORKSHEETS.length} worksheets · made for real decisions</p>
         </div>
-        <div className="rise rise-2">
-          <WelcomeForm />
+        <div className="rise rise-2 hidden items-center justify-center md:flex">
+          <div className="stamp h-44 w-44 flex-col gap-1 text-center text-xs">
+            <span className="text-2xl font-semibold">
+              {TOOLS.length + WORKSHEETS.length}
+            </span>
+            <span>tools & frameworks</span>
+            <span>· est. 2026 ·</span>
+          </div>
         </div>
       </section>
 

@@ -4,7 +4,7 @@ import { FormEvent, useState } from "react";
 
 type Audience = "owner" | "student";
 
-export default function WelcomeForm() {
+export default function WelcomeForm({ onSuccess }: { onSuccess?: () => void }) {
   const [audience, setAudience] = useState<Audience>("owner");
   const [status, setStatus] = useState<"idle" | "sending" | "sent" | "error">("idle");
 
@@ -23,6 +23,7 @@ export default function WelcomeForm() {
       if (!response.ok) throw new Error("Unable to send");
       setStatus("sent");
       formElement.reset();
+      onSuccess?.();
     } catch {
       setStatus("error");
     }

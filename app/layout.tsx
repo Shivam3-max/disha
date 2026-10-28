@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Fraunces, Instrument_Sans, Spline_Sans_Mono } from "next/font/google";
 import Link from "next/link";
+import WelcomeGate from "@/components/WelcomeGate";
 import "./globals.css";
 
 const fraunces = Fraunces({
@@ -81,7 +82,7 @@ export default function RootLayout({
             </nav>
           </div>
         </header>
-        {children}
+        <WelcomeGate>{children}</WelcomeGate>
         <footer className="no-print mt-20 border-t border-ink">
           <div className="mx-auto flex max-w-6xl flex-col gap-2 px-5 py-8 sm:flex-row sm:items-center sm:justify-between">
             <p className="rule-label">
