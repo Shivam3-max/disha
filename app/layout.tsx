@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import { Fraunces, Instrument_Sans, Spline_Sans_Mono } from "next/font/google";
 import Link from "next/link";
-import WelcomeGate from "@/components/WelcomeGate";
+import Script from "next/script";
 import "./globals.css";
 
 const fraunces = Fraunces({
@@ -35,6 +35,28 @@ export default function RootLayout({
       className={`${fraunces.variable} ${instrument.variable} ${splineMono.variable}`}
     >
       <body className="min-h-screen antialiased">
+        <Script id="gtm-bootstrap" strategy="afterInteractive">
+          {`
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){window.dataLayer.push(arguments);}
+            gtag('js', new Date());
+            (function(){
+              var script = document.createElement('script');
+              script.async = true;
+              script.src = 'https://www.googletagmanager.com/gtm.js?id=GTM-59X7NPXM';
+              document.head.appendChild(script);
+            })();
+          `}
+        </Script>
+        <noscript>
+          <iframe
+            src="https://www.googletagmanager.com/ns.html?id=GTM-59X7NPXM"
+            height="0"
+            width="0"
+            style={{ display: "none", visibility: "hidden" }}
+            title="Google Tag Manager"
+          />
+        </noscript>
         <header className="no-print border-b border-ink">
           <div className="mx-auto flex max-w-6xl items-center justify-between px-5 py-4">
             <Link href="/" className="flex items-baseline gap-2">
@@ -82,14 +104,14 @@ export default function RootLayout({
             </nav>
           </div>
         </header>
-        <WelcomeGate>{children}</WelcomeGate>
+        {children}
         <footer className="no-print mt-20 border-t border-ink">
           <div className="mx-auto flex max-w-6xl flex-col gap-2 px-5 py-8 sm:flex-row sm:items-center sm:justify-between">
             <p className="rule-label">
               Disha - practical business frameworks for owners and students
             </p>
             <p className="text-xs text-ink-faint">
-              Intake details are sent securely to the Disha team.
+              Your plan entries stay in this browser.
             </p>
             <a href={PAARTH_URL} className="text-xs text-vermillion underline">
               Back to Paarth
