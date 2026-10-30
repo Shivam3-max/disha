@@ -1,3 +1,5 @@
+import type { Metadata } from "next";
+import { pageMeta } from "@/lib/site";
 import { notFound } from "next/navigation";
 import Link from "next/link";
 import { STRATEGIES } from "@/lib/strategies";
@@ -6,6 +8,17 @@ import { starterKitHref } from "@/lib/knowledgeTypes";
 
 export function generateStaticParams() {
   return STRATEGIES.map((s) => ({ slug: s.slug }));
+}
+
+export async function generateMetadata({
+  params,
+}: {
+  params: Promise<{ slug: string }>;
+}): Promise<Metadata> {
+  const { slug } = await params;
+  const x = STRATEGIES.find((s) => s.slug === slug);
+  if (!x) return {};
+  return pageMeta({ title: `${x.name}: Meaning, Example & When to Use It`, description: x.definition, path: `/strategies/${x.slug}`, keywords: [x.name, `${x.name} strategy`, `${x.name} example`, x.category], type: "article" });
 }
 
 export default async function StrategyPage({

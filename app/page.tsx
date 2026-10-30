@@ -6,6 +6,18 @@ import { LEARN_DAYS } from "@/lib/learn";
 import { INDUSTRIES } from "@/lib/industries";
 import { STRATEGIES } from "@/lib/strategies";
 import { CASE_STUDIES } from "@/lib/caseStudies";
+import { LAWS } from "@/lib/laws";
+import { pageMeta, SITE_DESCRIPTION } from "@/lib/site";
+
+export const metadata = {
+  ...pageMeta({
+    title: "Disha — Free Business Tools, Frameworks & Famous Business Laws",
+    description: SITE_DESCRIPTION,
+    path: "/",
+    keywords: ["business tools", "business frameworks", "business laws", "psychology laws", "business strategy", "small business India", "learn business"],
+  }),
+  title: { absolute: "Disha — Free Business Tools, Frameworks & Famous Business Laws" },
+};
 
 const ENTRY_POINTS = [
   {
@@ -37,6 +49,12 @@ const ENTRY_POINTS = [
     label: "Learn mode",
     desc: "Foundations, the full flagship program, and quick-fire booster days — with quizzes that track what you still need to review.",
     stat: `${LEARN_DAYS.length} lessons · 3 tracks`,
+  },
+  {
+    href: "/laws",
+    label: "Laws of business & psychology",
+    desc: "Pareto, Parkinson, Goodhart, Dunning–Kruger, loss aversion and more — famous laws explained with real examples and how to use them.",
+    stat: `${LAWS.length} laws · 7 categories`,
   },
   {
     href: "/knowledge",
@@ -118,7 +136,7 @@ export default function Home() {
       </section>
 
       <section className="pb-20">
-        <p className="rule-label mb-2">six ways in</p>
+        <p className="rule-label mb-2">seven ways in</p>
         <h2 className="font-display mb-8 text-3xl font-semibold md:text-4xl">
           Wherever you start, it all lands in one plan
         </h2>

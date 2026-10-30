@@ -5,6 +5,15 @@ import { CASE_STUDIES } from "@/lib/caseStudies";
 import { GLOSSARY } from "@/lib/glossary";
 import { TEMPLATES } from "@/lib/templates";
 import { COMPLIANCE_TOPICS } from "@/lib/compliance";
+import { LAWS } from "@/lib/laws";
+import { pageMeta } from "@/lib/site";
+
+export const metadata = pageMeta({
+  title: "Business Knowledge Bank",
+  description:
+    "Industry playbooks, a global strategy atlas, 100 famous business and psychology laws, benchmarks, real case studies, a glossary, document templates and an India compliance quick-reference.",
+  path: "/knowledge",
+});
 
 const SECTIONS = [
   {
@@ -18,6 +27,12 @@ const SECTIONS = [
     label: "Strategy atlas",
     desc: "Named global strategies in plain language — what they mean, when to use them, when they backfire.",
     stat: `${STRATEGIES.length} strategies`,
+  },
+  {
+    href: "/laws",
+    label: "Laws of business & psychology",
+    desc: "Famous named laws and effects — from the Pareto principle to loss aversion — with origins, real examples, and how to apply them.",
+    stat: `${LAWS.length} laws`,
   },
   {
     href: "/benchmarks",
@@ -60,7 +75,7 @@ export default function KnowledgeHub() {
       </h1>
       <p className="mt-4 max-w-xl leading-relaxed text-ink-soft">
         Context, reference, and real-world proof to sit alongside the interactive tools —
-        industry-specific strategy, a global strategy atlas, benchmarks, case studies, a glossary,
+        industry-specific strategy, a global strategy atlas, famous business and psychology laws, benchmarks, case studies, a glossary,
         templates, and a compliance quick-reference.
       </p>
       <Link href="/search" className="btn-ink mt-6 inline-block px-6 py-3 font-medium">

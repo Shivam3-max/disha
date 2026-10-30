@@ -1,3 +1,5 @@
+import type { Metadata } from "next";
+import { pageMeta } from "@/lib/site";
 import { notFound } from "next/navigation";
 import Link from "next/link";
 import { INDUSTRIES } from "@/lib/industries";
@@ -6,6 +8,17 @@ import { starterKitHref } from "@/lib/knowledgeTypes";
 
 export function generateStaticParams() {
   return INDUSTRIES.map((i) => ({ slug: i.slug }));
+}
+
+export async function generateMetadata({
+  params,
+}: {
+  params: Promise<{ slug: string }>;
+}): Promise<Metadata> {
+  const { slug } = await params;
+  const x = INDUSTRIES.find((i) => i.slug === slug);
+  if (!x) return {};
+  return pageMeta({ title: `${x.name} Business Playbook: Strategy, Benchmarks & Pitfalls`, description: `${x.tagline} ${x.summary}`, path: `/industries/${x.slug}`, keywords: [`${x.name} business`, `${x.name} business plan`, `${x.name} industry benchmarks`, `how to start a ${x.name.toLowerCase()} business`], type: "article" });
 }
 
 export default async function IndustryPage({

@@ -1,3 +1,5 @@
+import type { Metadata } from "next";
+import { pageMeta } from "@/lib/site";
 import { notFound } from "next/navigation";
 import Link from "next/link";
 import { CASE_STUDIES } from "@/lib/caseStudies";
@@ -7,6 +9,17 @@ import { CASE_STUDY_KIND_LABEL } from "@/lib/knowledgeTypes";
 
 export function generateStaticParams() {
   return CASE_STUDIES.map((c) => ({ slug: c.slug }));
+}
+
+export async function generateMetadata({
+  params,
+}: {
+  params: Promise<{ slug: string }>;
+}): Promise<Metadata> {
+  const { slug } = await params;
+  const x = CASE_STUDIES.find((c) => c.slug === slug);
+  if (!x) return {};
+  return pageMeta({ title: `${x.title} — Business Case Study`, description: x.summary, path: `/case-studies/${x.slug}`, keywords: [x.title, `${x.title} case study`], type: "article" });
 }
 
 export default async function CaseStudyPage({
