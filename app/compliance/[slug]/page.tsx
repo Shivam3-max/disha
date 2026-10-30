@@ -1,9 +1,22 @@
+import type { Metadata } from "next";
+import { pageMeta } from "@/lib/site";
 import { notFound } from "next/navigation";
 import Link from "next/link";
 import { COMPLIANCE_TOPICS, COMPLIANCE_DISCLAIMER } from "@/lib/compliance";
 
 export function generateStaticParams() {
   return COMPLIANCE_TOPICS.map((c) => ({ slug: c.slug }));
+}
+
+export async function generateMetadata({
+  params,
+}: {
+  params: Promise<{ slug: string }>;
+}): Promise<Metadata> {
+  const { slug } = await params;
+  const x = COMPLIANCE_TOPICS.find((c) => c.slug === slug);
+  if (!x) return {};
+  return pageMeta({ title: `${x.title} — India Compliance Guide`, description: x.summary, path: `/compliance/${x.slug}`, keywords: [x.title, ...x.appliesTo], type: "article" });
 }
 
 export default async function ComplianceTopicPage({

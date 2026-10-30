@@ -7,6 +7,7 @@ import { searchKnowledgeBank, SEARCH_INDEX, type SearchItemType } from "@/lib/se
 const TYPE_ORDER: SearchItemType[] = [
   "Industry",
   "Strategy",
+  "Law",
   "Case study",
   "Tool",
   "Framework",

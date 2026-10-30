@@ -1,3 +1,5 @@
+import type { Metadata } from "next";
+import { pageMeta } from "@/lib/site";
 import { notFound } from "next/navigation";
 import { TOOLS, getTool } from "@/lib/registry";
 import { RevenueMultiplier } from "@/components/tools/RevenueMultiplier";
@@ -42,6 +44,17 @@ const COMPONENTS: Record<string, React.ComponentType> = {
 
 export function generateStaticParams() {
   return TOOLS.map((t) => ({ slug: t.slug }));
+}
+
+export async function generateMetadata({
+  params,
+}: {
+  params: Promise<{ slug: string }>;
+}): Promise<Metadata> {
+  const { slug } = await params;
+  const x = getTool(slug);
+  if (!x) return {};
+  return pageMeta({ title: `${x.title} — Free Business Tool`, description: `${x.question} ${x.description}`, path: `/tools/${x.slug}`, keywords: [x.title, `${x.title} calculator`, x.category] });
 }
 
 export default async function ToolPage({

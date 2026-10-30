@@ -121,3 +121,38 @@ export type ComplianceTopic = {
   summary: string;
   points: { heading: string; body: string }[];
 };
+
+export type LawCategorySlug =
+  | "business-strategy"
+  | "economics-markets"
+  | "marketing-ux"
+  | "persuasion-psychology"
+  | "cognitive-biases"
+  | "productivity-time"
+  | "leadership-teams";
+
+export type LawCategory = {
+  slug: LawCategorySlug;
+  name: string;
+  seoTitle: string;
+  description: string;
+  intro: string;
+};
+
+export type Law = {
+  slug: string;
+  name: string;
+  aka?: string[];
+  category: LawCategorySlug;
+  oneLiner: string;
+  origin: string;
+  explanation: string[];
+  examples: { title: string; body: string }[];
+  apply: string[];
+  misread: string;
+  question: string;
+  related: string[];
+  strategySlugs?: string[];
+  caseStudySlugs?: string[];
+  link?: StarterKitLink;
+};

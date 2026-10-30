@@ -3,6 +3,9 @@ import { Fraunces, Instrument_Sans, Spline_Sans_Mono } from "next/font/google";
 import Link from "next/link";
 import Script from "next/script";
 import "./globals.css";
+import { JsonLd } from "@/components/JsonLd";
+import { LAW_CATEGORIES } from "@/lib/laws";
+import { SITE_DESCRIPTION, SITE_NAME, SITE_TAGLINE, SITE_URL } from "@/lib/site";
 
 const fraunces = Fraunces({
   subsets: ["latin"],
@@ -19,12 +22,48 @@ const splineMono = Spline_Sans_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Disha - business clarity, one framework at a time",
-  description:
-    "Diagnose your business, work through practical frameworks, and leave with an action plan. Built for business owners and students.",
+  metadataBase: new URL(SITE_URL),
+  title: {
+    default: `${SITE_NAME} — ${SITE_TAGLINE}`,
+    template: `%s | ${SITE_NAME}`,
+  },
+  description: SITE_DESCRIPTION,
+  applicationName: SITE_NAME,
+  openGraph: {
+    siteName: SITE_NAME,
+    type: "website",
+    locale: "en_IN",
+    title: `${SITE_NAME} — ${SITE_TAGLINE}`,
+    description: SITE_DESCRIPTION,
+  },
+  twitter: { card: "summary_large_image" },
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: { index: true, follow: true, "max-image-preview": "large", "max-snippet": -1 },
+  },
+  ...(process.env.NEXT_PUBLIC_GOOGLE_SITE_VERIFICATION
+    ? { verification: { google: process.env.NEXT_PUBLIC_GOOGLE_SITE_VERIFICATION } }
+    : {}),
 };
 
-const PAARTH_URL = process.env.NEXT_PUBLIC_PAARTH_URL || "http://127.0.0.1:3690";
+const FOOTER_LINKS: [string, string][] = [
+  ["/tools", "Business tools"],
+  ["/frameworks", "Frameworks"],
+  ["/laws", "Business & psychology laws"],
+  ["/strategies", "Strategy atlas"],
+  ["/industries", "Industry playbooks"],
+  ["/case-studies", "Case studies"],
+  ["/learn", "Free lessons"],
+  ["/journeys", "Journeys"],
+  ["/benchmarks", "Benchmarks"],
+  ["/glossary", "Glossary"],
+  ["/templates", "Templates"],
+  ["/compliance", "India compliance"],
+];
+
+// Only link out to Paarth when its public URL is configured (avoids a localhost link in production).
+const PAARTH_URL = process.env.NEXT_PUBLIC_PAARTH_URL;
 
 export default function RootLayout({
   children,
@@ -35,6 +74,25 @@ export default function RootLayout({
       className={`${fraunces.variable} ${instrument.variable} ${splineMono.variable}`}
     >
       <body className="min-h-screen antialiased">
+        <JsonLd
+          data={[
+            {
+              "@context": "https://schema.org",
+              "@type": "Organization",
+              name: SITE_NAME,
+              url: SITE_URL,
+              description: SITE_DESCRIPTION,
+            },
+            {
+              "@context": "https://schema.org",
+              "@type": "WebSite",
+              name: SITE_NAME,
+              url: SITE_URL,
+              inLanguage: "en-IN",
+              description: SITE_DESCRIPTION,
+            },
+          ]}
+        />
         <Script
           id="adsense"
           src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8479869834059620"
@@ -100,10 +158,13 @@ export default function RootLayout({
               <Link href="/frameworks" className="hidden hover:text-vermillion lg:inline">
                 Frameworks
               </Link>
-              <Link href="/learn" className="hover:text-vermillion">
+              <Link href="/laws" className="hover:text-vermillion">
+                Laws
+              </Link>
+              <Link href="/learn" className="hidden hover:text-vermillion sm:inline">
                 Learn
               </Link>
-              <Link href="/knowledge" className="hover:text-vermillion">
+              <Link href="/knowledge" className="hidden hover:text-vermillion sm:inline">
                 Knowledge
               </Link>
               <Link href="/search" className="hover:text-vermillion" aria-label="Search">
@@ -111,31 +172,62 @@ export default function RootLayout({
               </Link>
               <Link
                 href="/plan"
-                className="btn-outline px-3 py-1.5 text-sm font-medium"
+                className="btn-outline whitespace-nowrap px-3 py-1.5 text-sm font-medium"
               >
                 My plan
               </Link>
-              <a
-                href={PAARTH_URL}
-                className="hidden text-ink-faint hover:text-vermillion md:inline"
-              >
-                Paarth
-              </a>
+              {PAARTH_URL && (
+                <a
+                  href={PAARTH_URL}
+                  className="hidden text-ink-faint hover:text-vermillion md:inline"
+                >
+                  Paarth
+                </a>
+              )}
             </nav>
           </div>
         </header>
         {children}
         <footer className="no-print mt-20 border-t border-ink">
-          <div className="mx-auto flex max-w-6xl flex-col gap-2 px-5 py-8 sm:flex-row sm:items-center sm:justify-between">
-            <p className="rule-label">
-              Disha - practical business frameworks for owners and students
-            </p>
-            <p className="text-xs text-ink-faint">
-              Your plan entries stay in this browser.
-            </p>
-            <a href={PAARTH_URL} className="text-xs text-vermillion underline">
-              Back to Paarth
-            </a>
+          <div className="mx-auto grid max-w-6xl gap-8 px-5 py-10 sm:grid-cols-2 lg:grid-cols-[1.2fr_1fr_1fr]">
+            <div>
+              <Link href="/" className="font-display text-2xl font-semibold">
+                Disha
+              </Link>
+              <p className="mt-2 max-w-xs text-sm leading-relaxed text-ink-soft">
+                Practical business tools, frameworks, laws and lessons for owners and students.
+              </p>
+              <p className="mt-3 text-xs text-ink-faint">Your plan entries stay in this browser.</p>
+              {PAARTH_URL && (
+                <a href={PAARTH_URL} className="mt-2 inline-block text-xs text-vermillion underline">
+                  Back to Paarth
+                </a>
+              )}
+            </div>
+            <nav aria-label="Explore">
+              <p className="rule-label mb-3">explore</p>
+              <ul className="grid grid-cols-2 gap-x-4 gap-y-1.5 text-sm">
+                {FOOTER_LINKS.map(([href, label]) => (
+                  <li key={href}>
+                    <Link href={href} className="hover:text-vermillion">
+                      {label}
+                    </Link>
+                  </li>
+                ))}
+              </ul>
+            </nav>
+            <nav aria-label="Laws">
+              <p className="rule-label mb-3">laws by category</p>
+              <ul className="space-y-1.5 text-sm">
+                {LAW_CATEGORIES.map((c) => (
+                  <li key={c.slug}>
+                    <Link href={`/laws/category/${c.slug}`} className="hover:text-vermillion">
+                      {c.name}
+                    </Link>
+                  </li>
+                ))}
+              </ul>
+            </nav>
           </div>
         </footer>
       </body>

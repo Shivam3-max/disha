@@ -1,5 +1,14 @@
 import Link from "next/link";
 import { COMPLIANCE_TOPICS, COMPLIANCE_DISCLAIMER } from "@/lib/compliance";
+import { pageMeta } from "@/lib/site";
+
+export const metadata = pageMeta({
+  title: "India Business Compliance Quick-Reference",
+  description:
+    "Plain-language orientation on Indian business registrations and compliance — business structure, GST, Shops & Establishment, PF/ESI, Udyam, FSSAI, IEC, trademarks and e-way bills.",
+  path: "/compliance",
+  keywords: ["business compliance India", "business registration India", "GST registration", "Udyam registration", "FSSAI license"],
+});
 
 export default function ComplianceIndex() {
   return (
