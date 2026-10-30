@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 
-export const SITE_URL = (process.env.NEXT_PUBLIC_SITE_URL || "https://disha-ashy.vercel.app").replace(/\/$/, "");
+export const SITE_URL = (process.env.NEXT_PUBLIC_SITE_URL || "https://dishaclarity.com").replace(/\/$/, "");
 export const SITE_NAME = "Disha";
 export const SITE_TAGLINE = "Business clarity, one framework at a time";
 export const SITE_DESCRIPTION =
