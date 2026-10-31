@@ -156,3 +156,32 @@ select:focus {
   body { background-image: none; }
   .no-print { display: none !important; }
 }
+
+/* Long-form text on trust and policy pages. */
+.prose-ledger h2 {
+  font-family: var(--font-display);
+  font-size: 1.5rem;
+  font-weight: 600;
+  margin-top: 2.25rem;
+  margin-bottom: 0.75rem;
+}
+.prose-ledger p,
+.prose-ledger li {
+  line-height: 1.75;
+  color: var(--color-ink-soft);
+}
+.prose-ledger p + p {
+  margin-top: 1rem;
+}
+.prose-ledger ul {
+  list-style: disc;
+  padding-left: 1.25rem;
+  margin-top: 0.75rem;
+}
+.prose-ledger li + li {
+  margin-top: 0.4rem;
+}
+.prose-ledger a {
+  color: var(--color-vermillion);
+  text-decoration: underline;
+}

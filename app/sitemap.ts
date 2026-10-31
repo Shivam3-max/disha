@@ -40,9 +40,12 @@ export default function sitemap(): MetadataRoute.Sitemap {
     "/checkup",
   ];
 
+  const trust = ["/about", "/contact", "/editorial-policy", "/privacy-policy", "/terms", "/disclaimer"];
+
   const entries: Entry[] = [
     page("/", 1, "weekly"),
     ...hubs.map((p) => page(p, 0.8, "weekly")),
+    ...trust.map((p) => page(p, 0.3, "yearly")),
     ...LAW_CATEGORIES.map((c) => page(`/laws/category/${c.slug}`, 0.7)),
     ...LAWS.map((l) => page(`/laws/${l.slug}`, 0.7)),
     ...TOOLS.map((t) => page(`/tools/${t.slug}`, 0.7)),

@@ -63,3 +63,20 @@ export function breadcrumbLd(items: { name: string; path: string }[]) {
     })),
   };
 }
+
+/** Public contact and ownership details shown on the trust pages. */
+export const CONTACT_EMAIL = process.env.NEXT_PUBLIC_CONTACT_EMAIL || "shivam@relytask.com";
+export const SITE_OPERATOR = "RelyTask Solutions";
+export const FOUNDER_NAME = "Shivam Bhandari";
+export const SITE_DOMAIN = "dishaclarity.com";
+/** Date the editorial content was last reviewed; shown in bylines and Article structured data. */
+export const CONTENT_REVIEWED = "2026-10-31";
+
+export function formatDate(iso: string) {
+  return new Date(`${iso}T00:00:00Z`).toLocaleDateString("en-IN", {
+    day: "numeric",
+    month: "long",
+    year: "numeric",
+    timeZone: "UTC",
+  });
+}

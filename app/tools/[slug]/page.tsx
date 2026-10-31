@@ -1,5 +1,7 @@
 import type { Metadata } from "next";
 import { pageMeta } from "@/lib/site";
+import { TOOL_GUIDES } from "@/lib/toolGuides";
+import { ToolGuideSection } from "@/components/ToolGuideSection";
 import { notFound } from "next/navigation";
 import { TOOLS, getTool } from "@/lib/registry";
 import { RevenueMultiplier } from "@/components/tools/RevenueMultiplier";
@@ -66,5 +68,11 @@ export default async function ToolPage({
   const meta = getTool(slug);
   const Component = COMPONENTS[slug];
   if (!meta || !Component) notFound();
-  return <Component />;
+  const guide = TOOL_GUIDES[slug];
+  return (
+    <>
+      <Component />
+      {guide && <ToolGuideSection guide={guide} />}
+    </>
+  );
 }

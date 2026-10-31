@@ -5,7 +5,8 @@ import { LAWS, getLaw, getLawCategory, lawFaqs, lawShortName, lawsInCategory } f
 import { STRATEGIES } from "@/lib/strategies";
 import { CASE_STUDIES } from "@/lib/caseStudies";
 import { starterKitHref } from "@/lib/knowledgeTypes";
-import { SITE_NAME, absoluteUrl, pageMeta } from "@/lib/site";
+import { CONTENT_REVIEWED, FOUNDER_NAME, SITE_NAME, absoluteUrl, pageMeta } from "@/lib/site";
+import { Byline } from "@/components/Byline";
 import { Breadcrumbs } from "@/components/Breadcrumbs";
 import { JsonLd } from "@/components/JsonLd";
 
@@ -64,7 +65,9 @@ export default async function LawPage({ params }: { params: Promise<{ slug: stri
             mainEntityOfPage: url,
             articleSection: category.name,
             keywords: [short, ...(law.aka ?? [])].join(", "),
-            author: { "@type": "Organization", name: SITE_NAME, url: absoluteUrl("/") },
+            author: { "@type": "Person", name: FOUNDER_NAME, url: absoluteUrl("/about") },
+            datePublished: CONTENT_REVIEWED,
+            dateModified: CONTENT_REVIEWED,
             publisher: { "@type": "Organization", name: SITE_NAME, url: absoluteUrl("/") },
             about: { "@type": "DefinedTerm", name: law.name, description: law.oneLiner },
           },
@@ -95,6 +98,7 @@ export default async function LawPage({ params }: { params: Promise<{ slug: stri
             Also known as: {law.aka.join(" · ")}
           </p>
         )}
+        <Byline />
 
         <section className="ledger-card mt-8 p-6">
           <h2 className="rule-label mb-2">what it means</h2>

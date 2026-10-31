@@ -4,8 +4,9 @@ import Link from "next/link";
 import Script from "next/script";
 import "./globals.css";
 import { JsonLd } from "@/components/JsonLd";
+import { MobileMenu, type MenuGroup } from "@/components/MobileMenu";
 import { LAW_CATEGORIES } from "@/lib/laws";
-import { SITE_DESCRIPTION, SITE_NAME, SITE_TAGLINE, SITE_URL } from "@/lib/site";
+import { CONTACT_EMAIL, FOUNDER_NAME, SITE_DESCRIPTION, SITE_NAME, SITE_OPERATOR, SITE_TAGLINE, SITE_URL } from "@/lib/site";
 
 const fraunces = Fraunces({
   subsets: ["latin"],
@@ -47,6 +48,73 @@ export const metadata: Metadata = {
     : {}),
 };
 
+// Only link out to Paarth when its public URL is configured (avoids a localhost link in production).
+const PAARTH_URL = process.env.NEXT_PUBLIC_PAARTH_URL;
+
+const DESKTOP_LINKS: [string, string][] = [
+  ["/checkup", "Health checkup"],
+  ["/journeys", "Journeys"],
+  ["/tools", "Tools"],
+  ["/frameworks", "Frameworks"],
+  ["/laws", "Laws"],
+  ["/case-studies", "Case studies"],
+  ["/learn", "Learn"],
+  ["/knowledge", "Knowledge"],
+  ["/search", "Search"],
+];
+
+const MOBILE_MENU: MenuGroup[] = [
+  {
+    label: "start here",
+    links: [
+      { href: "/", label: "Home" },
+      { href: "/checkup", label: "Health checkup" },
+      { href: "/journeys", label: "Journeys" },
+      { href: "/plan", label: "My plan" },
+    ],
+  },
+  {
+    label: "do the work",
+    links: [
+      { href: "/tools", label: "Tools" },
+      { href: "/frameworks", label: "Frameworks" },
+      { href: "/templates", label: "Templates" },
+      { href: "/learn", label: "Learn" },
+    ],
+  },
+  {
+    label: "knowledge bank",
+    links: [
+      { href: "/laws", label: "Laws" },
+      { href: "/case-studies", label: "Case studies" },
+      { href: "/strategies", label: "Strategies" },
+      { href: "/industries", label: "Industries" },
+      { href: "/benchmarks", label: "Benchmarks" },
+      { href: "/glossary", label: "Glossary" },
+      { href: "/compliance", label: "India compliance" },
+      { href: "/knowledge", label: "All knowledge" },
+    ],
+  },
+  {
+    label: "about",
+    links: [
+      { href: "/about", label: "About Disha" },
+      { href: "/contact", label: "Contact" },
+      { href: "/search", label: "Search" },
+      ...(PAARTH_URL ? [{ href: PAARTH_URL, label: "Paarth", external: true }] : []),
+    ],
+  },
+];
+
+const LEGAL_LINKS: [string, string][] = [
+  ["/about", "About"],
+  ["/contact", "Contact"],
+  ["/editorial-policy", "Editorial policy"],
+  ["/privacy-policy", "Privacy policy"],
+  ["/terms", "Terms"],
+  ["/disclaimer", "Disclaimer"],
+];
+
 const FOOTER_LINKS: [string, string][] = [
   ["/tools", "Business tools"],
   ["/frameworks", "Frameworks"],
@@ -62,8 +130,6 @@ const FOOTER_LINKS: [string, string][] = [
   ["/compliance", "India compliance"],
 ];
 
-// Only link out to Paarth when its public URL is configured (avoids a localhost link in production).
-const PAARTH_URL = process.env.NEXT_PUBLIC_PAARTH_URL;
 
 export default function RootLayout({
   children,
@@ -82,6 +148,9 @@ export default function RootLayout({
               name: SITE_NAME,
               url: SITE_URL,
               description: SITE_DESCRIPTION,
+              email: CONTACT_EMAIL,
+              founder: { "@type": "Person", name: FOUNDER_NAME },
+              parentOrganization: { "@type": "Organization", name: SITE_OPERATOR },
             },
             {
               "@context": "https://schema.org",
@@ -145,31 +214,12 @@ export default function RootLayout({
                 business clarity ledger
               </span>
             </Link>
-            <nav className="flex items-center gap-3 text-sm sm:gap-4">
-              <Link href="/checkup" className="hidden hover:text-vermillion lg:inline">
-                Health checkup
-              </Link>
-              <Link href="/journeys" className="hidden hover:text-vermillion md:inline">
-                Journeys
-              </Link>
-              <Link href="/tools" className="hover:text-vermillion">
-                Tools
-              </Link>
-              <Link href="/frameworks" className="hidden hover:text-vermillion lg:inline">
-                Frameworks
-              </Link>
-              <Link href="/laws" className="hover:text-vermillion">
-                Laws
-              </Link>
-              <Link href="/learn" className="hidden hover:text-vermillion sm:inline">
-                Learn
-              </Link>
-              <Link href="/knowledge" className="hidden hover:text-vermillion sm:inline">
-                Knowledge
-              </Link>
-              <Link href="/search" className="hover:text-vermillion" aria-label="Search">
-                Search
-              </Link>
+            <nav aria-label="Main" className="hidden items-center gap-4 text-sm xl:flex">
+              {DESKTOP_LINKS.map(([href, label]) => (
+                <Link key={href} href={href} className="hover:text-vermillion">
+                  {label}
+                </Link>
+              ))}
               <Link
                 href="/plan"
                 className="btn-outline whitespace-nowrap px-3 py-1.5 text-sm font-medium"
@@ -177,14 +227,17 @@ export default function RootLayout({
                 My plan
               </Link>
               {PAARTH_URL && (
-                <a
-                  href={PAARTH_URL}
-                  className="hidden text-ink-faint hover:text-vermillion md:inline"
-                >
+                <a href={PAARTH_URL} className="text-ink-faint hover:text-vermillion">
                   Paarth
                 </a>
               )}
             </nav>
+            <div className="flex items-center gap-2 xl:hidden">
+              <Link href="/search" aria-label="Search" className="btn-outline flex h-9 items-center px-3 text-sm">
+                Search
+              </Link>
+              <MobileMenu groups={MOBILE_MENU} />
+            </div>
           </div>
         </header>
         {children}
@@ -228,6 +281,20 @@ export default function RootLayout({
                 ))}
               </ul>
             </nav>
+          </div>
+          <div className="border-t border-paper-line">
+            <div className="mx-auto flex max-w-6xl flex-col gap-3 px-5 py-5 text-xs text-ink-faint sm:flex-row sm:items-center sm:justify-between">
+              <p>
+                © {new Date().getFullYear()} {SITE_NAME} · run by {SITE_OPERATOR}
+              </p>
+              <nav aria-label="Legal" className="flex flex-wrap gap-x-4 gap-y-1">
+                {LEGAL_LINKS.map(([href, label]) => (
+                  <Link key={href} href={href} className="hover:text-vermillion">
+                    {label}
+                  </Link>
+                ))}
+              </nav>
+            </div>
           </div>
         </footer>
       </body>
