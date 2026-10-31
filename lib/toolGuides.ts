@@ -1,4 +1,5 @@
 // Long-form guides shown under each interactive tool, so every tool page explains the concept, not just the calculator.
+import { TOOL_GUIDES_2 } from "./toolGuides2";
 
 export type ToolGuide = {
   heading: string;
@@ -9,7 +10,7 @@ export type ToolGuide = {
   faqs: { q: string; a: string }[];
 };
 
-export const TOOL_GUIDES: Record<string, ToolGuide> = {
+const TOOL_GUIDES_1: Record<string, ToolGuide> = {
   "revenue-multiplier": {
     heading: "How to increase revenue: the four-lever formula",
     intro: [
@@ -820,3 +821,5 @@ export const TOOL_GUIDES: Record<string, ToolGuide> = {
     ],
   },
 };
+
+export const TOOL_GUIDES: Record<string, ToolGuide> = { ...TOOL_GUIDES_1, ...TOOL_GUIDES_2 };

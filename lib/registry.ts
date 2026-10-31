@@ -2,7 +2,7 @@ export type ToolMeta = {
   slug: string;
   no: string;
   title: string;
-  category: "Grow revenue" | "Fix money" | "Beat competition" | "Build the team" | "Lead yourself" | "Plan strategy";
+  category: "Grow revenue" | "Fix money" | "Beat competition" | "Build the team" | "Lead yourself" | "Plan strategy" | "Calculators";
   question: string;
   description: string;
   minutes: number;
@@ -189,6 +189,126 @@ export const TOOLS: ToolMeta[] = [
       "The four-quadrant classic — strengths, weaknesses, opportunities, threats — built as a living list instead of a static box.",
     minutes: 7,
   },
+  {
+    slug: "gst-calculator",
+    no: "19",
+    title: "GST calculator",
+    category: "Calculators",
+    question: "How much GST do I add or remove?",
+    description:
+      "Add GST to a price or extract it from a GST-inclusive amount, with the CGST/SGST or IGST split, at the current 5%, 18% and 40% rates or any custom rate.",
+    minutes: 2,
+  },
+  {
+    slug: "emi-calculator",
+    no: "20",
+    title: "EMI calculator",
+    category: "Calculators",
+    question: "What will my loan EMI be?",
+    description:
+      "Monthly instalment, total interest and a year-by-year repayment schedule for business, home, car or personal loans.",
+    minutes: 3,
+  },
+  {
+    slug: "sip-calculator",
+    no: "21",
+    title: "SIP calculator",
+    category: "Calculators",
+    question: "What will my monthly SIP grow to?",
+    description:
+      "Estimate the future value of a monthly investment at an expected annual return, and how much of it is gains.",
+    minutes: 2,
+  },
+  {
+    slug: "cagr-calculator",
+    no: "22",
+    title: "CAGR calculator",
+    category: "Calculators",
+    question: "What is my compound annual growth rate?",
+    description:
+      "Turn a starting value, an ending value and a number of years into one comparable yearly growth rate.",
+    minutes: 2,
+  },
+  {
+    slug: "compound-interest-calculator",
+    no: "23",
+    title: "Compound interest calculator",
+    category: "Calculators",
+    question: "How much will my money grow with compounding?",
+    description:
+      "See how principal grows at a given rate with yearly, half-yearly, quarterly or monthly compounding.",
+    minutes: 2,
+  },
+  {
+    slug: "profit-margin-calculator",
+    no: "24",
+    title: "Profit margin calculator",
+    category: "Calculators",
+    question: "What is my profit margin on this product?",
+    description:
+      "Enter cost and selling price to get profit, margin % and markup % side by side — so you never confuse the two.",
+    minutes: 2,
+  },
+  {
+    slug: "markup-calculator",
+    no: "25",
+    title: "Markup calculator",
+    category: "Calculators",
+    question: "What price should I sell at for my target markup?",
+    description:
+      "Set a cost and a markup or target margin and get the selling price, profit per unit and the equivalent margin.",
+    minutes: 2,
+  },
+  {
+    slug: "discount-calculator",
+    no: "26",
+    title: "Discount calculator",
+    category: "Calculators",
+    question: "What is the final price after discounts?",
+    description:
+      "Apply one or two successive discounts, see the effective discount and the price after GST.",
+    minutes: 2,
+  },
+  {
+    slug: "roi-calculator",
+    no: "27",
+    title: "ROI calculator",
+    category: "Calculators",
+    question: "Was this investment worth it?",
+    description:
+      "Return on investment as a total percentage and as an annualised rate, so projects of different lengths can be compared.",
+    minutes: 2,
+  },
+  {
+    slug: "working-capital-calculator",
+    no: "28",
+    title: "Working capital calculator",
+    category: "Calculators",
+    question: "How much cash is tied up in running my business?",
+    description:
+      "Working capital, current ratio, quick ratio and the cash conversion cycle in days from your balance sheet numbers.",
+    minutes: 4,
+  },
+  {
+    slug: "salary-calculator",
+    no: "29",
+    title: "CTC to in-hand salary calculator",
+    category: "Calculators",
+    question: "How much salary will I actually get each month?",
+    description:
+      "Break a CTC into basic, PF, gratuity, professional tax and income tax to see your monthly take-home pay under either tax regime.",
+    minutes: 4,
+  },
+  {
+    slug: "income-tax-calculator",
+    no: "30",
+    title: "Income tax calculator (old vs new regime)",
+    category: "Calculators",
+    question: "Which tax regime saves me more?",
+    description:
+      "Compare tax under the old and new regimes for FY 2025-26 and FY 2026-27, with deductions, rebate, surcharge and cess.",
+    minutes: 4,
+  },
 ];
 
 export const CATEGORIES = [
@@ -198,6 +318,7 @@ export const CATEGORIES = [
   "Build the team",
   "Lead yourself",
   "Plan strategy",
+  "Calculators",
 ] as const;
 
 export function getTool(slug: string) {
