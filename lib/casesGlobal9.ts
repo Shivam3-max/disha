@@ -1,0 +1,830 @@
+import type { CaseStudy } from "./knowledgeTypes";
+
+// Global case library, batch 9 — Asia, Latin America, Middle East & Africa. Figures are rounded from public reports.
+export const CASES_GLOBAL_9: CaseStudy[] = [
+  {
+    slug: "grab-southeast-asia-super-app",
+    title: "Grab: beating Uber in Southeast Asia",
+    company: "Grab",
+    country: "Singapore",
+    region: "Asia-Pacific",
+    period: "2012–2023",
+    kind: "build",
+    industrySlug: "logistics-transport",
+    strategySlug: "platform-strategy",
+    summary:
+      "Grab started as a taxi-booking app in Malaysia, adapted to local needs such as cash payments and motorbike taxis, bought Uber's Southeast Asian business in 2018, and became a super-app.",
+    story: [
+      "Anthony Tan and Tan Hooi Ling developed the idea at Harvard Business School and launched MyTeksi in Malaysia in 2012 to make taxis safer and more reliable. It expanded across Southeast Asia as GrabTaxi, then Grab.",
+      "Unlike Uber's global playbook, Grab adapted to each market: it accepted cash, added motorbike taxis, worked with existing taxi drivers, and hired local teams. After a costly subsidy war, Uber sold its Southeast Asian business to Grab in March 2018 in exchange for a stake of about 27.5% in Grab.",
+      "Grab expanded into food delivery, payments, and financial services. It went public on Nasdaq through a SPAC in 2021 at a valuation of about $40 billion, and in 2023 reported positive adjusted EBITDA for a full year.",
+    ],
+    keyNumbers: [
+      { label: "Launch", value: "2012, Malaysia" },
+      { label: "Uber's stake from the 2018 deal", value: "about 27.5%" },
+      { label: "Valuation at listing (2021)", value: "about $40 billion" },
+    ],
+    timeline: [
+      { year: "2012", event: "MyTeksi launches." },
+      { year: "2016", event: "GrabPay launches." },
+      { year: "2018", event: "Acquires Uber's Southeast Asia business." },
+      { year: "2021", event: "Nasdaq listing." },
+    ],
+    drivers: [
+      "Local adaptation — cash, motorbikes, local teams.",
+      "Expanded from rides into everyday services.",
+      "Outlasted a global rival in a subsidy war.",
+    ],
+    lesson:
+      "A local player that adapts deeply to how customers actually live can beat a global giant using one playbook.",
+    takeaways: [
+      "Design for local payment and transport habits.",
+      "Expand into adjacent daily services.",
+      "Hire leaders who understand each market.",
+    ],
+    lawSlugs: ["jakobs-law", "metcalfes-law", "law-of-the-instrument"],
+  },
+  {
+    slug: "gojek-ojek-to-goto",
+    title: "Gojek: from a 20-driver call centre to Indonesia's super-app",
+    company: "Gojek (GoTo)",
+    country: "Indonesia",
+    region: "Asia-Pacific",
+    period: "2010–2022",
+    kind: "build",
+    industrySlug: "logistics-transport",
+    strategySlug: "platform-strategy",
+    summary:
+      "Nadiem Makarim began by booking motorbike taxis through a call centre. Gojek's app added food, payments, and deliveries, then merged with Tokopedia to form GoTo.",
+    story: [
+      "Indonesia's ‘ojek’ motorbike taxis were a common way to beat Jakarta's traffic, but finding a reliable driver and agreeing on a price was hard. In 2010 Nadiem Makarim set up Gojek as a call centre with about 20 drivers.",
+      "Gojek launched its app in 2015, offering fixed prices and verified drivers. Because its drivers were already on the road, it added food delivery (GoFood), parcel delivery, and payments (GoPay), building a super-app used daily. It also provided drivers with income, insurance, and financial services.",
+      "In 2021 Gojek merged with e-commerce company Tokopedia to form GoTo, which listed in Jakarta in 2022, raising about $1.1 billion. Makarim had left in 2019 to become Indonesia's education minister.",
+    ],
+    keyNumbers: [
+      { label: "Drivers at start (2010)", value: "about 20" },
+      { label: "App launch", value: "2015" },
+      { label: "GoTo IPO (2022)", value: "about $1.1 billion raised" },
+    ],
+    timeline: [
+      { year: "2010", event: "Call-centre service begins." },
+      { year: "2015", event: "App launches." },
+      { year: "2016", event: "GoPay introduced." },
+      { year: "2021", event: "Merger with Tokopedia." },
+      { year: "2022", event: "GoTo lists in Jakarta." },
+    ],
+    drivers: [
+      "Organised an existing informal service.",
+      "Used one fleet for many services.",
+      "Payments tied the ecosystem together.",
+    ],
+    lesson:
+      "Organising an informal local service with technology can create a platform for many other services.",
+    takeaways: [
+      "Look for informal services you could organise.",
+      "Reuse your network for more services.",
+      "Make payments easy to keep customers inside your ecosystem.",
+    ],
+    lawSlugs: ["metcalfes-law", "teslers-law", "status-quo-bias"],
+  },
+  {
+    slug: "sea-shopee-garena",
+    title: "Sea Limited: games fund an e-commerce giant",
+    company: "Sea Limited (Garena, Shopee)",
+    country: "Singapore",
+    region: "Asia-Pacific",
+    period: "2009–2023",
+    kind: "build",
+    industrySlug: "d2c-ecommerce",
+    summary:
+      "Forrest Li built a profitable gaming business, used it to fund mobile-first marketplace Shopee, grew to a peak value of about $200 billion, then cut back sharply to reach profitability.",
+    story: [
+      "Forrest Li founded Garena in Singapore in 2009 to publish online games in Southeast Asia. Its own mobile game Free Fire, designed to run on cheap phones, became one of the world's most downloaded games.",
+      "Gaming profits funded Shopee, launched in 2015 as a mobile-first marketplace. Shopee offered free shipping, low or no seller fees, in-app chat, and games inside the shopping app. It overtook rivals to lead Southeast Asian e-commerce and expanded to Brazil. Sea listed on the NYSE in 2017, and its value peaked at around $200 billion in 2021.",
+      "When growth slowed after the pandemic, Sea cut costs, exited markets including India and parts of Europe, and laid off staff. It reported its first profitable quarter in late 2022.",
+    ],
+    keyNumbers: [
+      { label: "Garena founded", value: "2009" },
+      { label: "Shopee launch", value: "2015" },
+      { label: "Peak market value (2021)", value: "around $200 billion" },
+      { label: "First profitable quarter", value: "late 2022" },
+    ],
+    timeline: [
+      { year: "2009", event: "Garena founded." },
+      { year: "2015", event: "Shopee launches." },
+      { year: "2017", event: "NYSE IPO; Free Fire launches." },
+      { year: "2022", event: "Major cost cuts; first profit." },
+    ],
+    drivers: [
+      "Profitable business funded a new one.",
+      "Mobile-first design for emerging markets.",
+      "Free shipping and low fees drove adoption.",
+      "Later discipline when growth capital dried up.",
+    ],
+    lesson:
+      "Profits from one business can fund a bold expansion — but growth must eventually turn into sustainable economics.",
+    takeaways: [
+      "Use cash-generating businesses to fund new bets.",
+      "Design for your customers' devices and budgets.",
+      "Be ready to cut back when conditions change.",
+    ],
+    lawSlugs: ["law-of-diminishing-returns", "comparative-advantage", "matthew-effect"],
+  },
+  {
+    slug: "jollibee-beats-mcdonalds-philippines",
+    title: "Jollibee: the local chain that beat McDonald's at home",
+    company: "Jollibee Foods Corporation",
+    country: "Philippines",
+    region: "Asia-Pacific",
+    period: "1975–2023",
+    kind: "build",
+    industrySlug: "restaurants-qsr",
+    summary:
+      "Jollibee started as an ice-cream parlour in 1975 and beat McDonald's in the Philippines by tailoring its menu to local tastes — sweet spaghetti and fried chicken — before expanding worldwide.",
+    story: [
+      "Tony Tan Caktiong opened an ice-cream parlour in Quezon City in 1975, then shifted to hamburgers in 1978 as customers asked for hot food. When McDonald's entered the Philippines in 1981, many expected Jollibee to lose.",
+      "Jollibee won by designing for Filipino tastes: a sweeter burger, sweet-style spaghetti with hot dog slices, and crispy ‘Chickenjoy’ fried chicken with rice. Its bee mascot appealed to families. It expanded quickly into provincial towns and kept prices accessible.",
+      "Jollibee became the Philippines' leading fast-food chain, ahead of McDonald's, and grew into a global group with brands including Mang Inasal, Red Ribbon, The Coffee Bean & Tea Leaf, and Smashburger, operating thousands of stores worldwide.",
+    ],
+    keyNumbers: [
+      { label: "Founded", value: "1975, ice-cream parlour" },
+      { label: "Switched to burgers", value: "1978" },
+      { label: "McDonald's enters Philippines", value: "1981" },
+    ],
+    timeline: [
+      { year: "1975", event: "First outlet opens." },
+      { year: "1978", event: "Jollibee becomes a burger chain." },
+      { year: "1981", event: "McDonald's arrives." },
+      { year: "2019", event: "Acquires The Coffee Bean & Tea Leaf." },
+    ],
+    drivers: [
+      "Menu built for local tastes.",
+      "Family-friendly brand and mascot.",
+      "Rapid expansion into towns before rivals.",
+    ],
+    lesson:
+      "Knowing local tastes better than any global brand can be a decisive advantage — even against the biggest names.",
+    takeaways: [
+      "Design products around local preferences.",
+      "Expand where global rivals are slow to go.",
+      "Build a brand families feel attached to.",
+    ],
+    lawSlugs: ["jakobs-law", "liking-principle", "law-of-the-category"],
+  },
+  {
+    slug: "mercadolibre-latin-america",
+    title: "MercadoLibre: building Latin America's commerce infrastructure",
+    company: "MercadoLibre",
+    country: "Argentina",
+    region: "Latin America",
+    period: "1999–2023",
+    kind: "build",
+    industrySlug: "d2c-ecommerce",
+    strategySlug: "platform-strategy",
+    summary:
+      "Marcos Galperin's online marketplace built its own payments (Mercado Pago) and logistics (Mercado Envios) to solve Latin America's trust and delivery problems, becoming the region's most valuable company.",
+    story: [
+      "Marcos Galperin wrote the business plan for MercadoLibre at Stanford and launched it in Buenos Aires in 1999. eBay took a stake in 2001 and agreed to stay out of the region.",
+      "Latin American e-commerce faced big obstacles: many people lacked credit cards, buyers didn't trust sellers, and delivery was unreliable. MercadoLibre built Mercado Pago to hold payments safely and to serve people without cards, and Mercado Envios to manage shipping. Mercado Pago later became a major fintech, offering wallets and loans.",
+      "MercadoLibre listed on Nasdaq in 2007. In 2023 it reported revenue of about $14.5 billion, and it became one of the most valuable companies in Latin America.",
+    ],
+    keyNumbers: [
+      { label: "Founded", value: "1999, Buenos Aires" },
+      { label: "eBay investment", value: "2001" },
+      { label: "Nasdaq IPO", value: "2007" },
+      { label: "Revenue (2023)", value: "about $14.5 billion" },
+    ],
+    timeline: [
+      { year: "1999", event: "MercadoLibre launches." },
+      { year: "2003", event: "Mercado Pago introduced." },
+      { year: "2007", event: "Nasdaq IPO." },
+      { year: "2013", event: "Mercado Envios logistics launches." },
+    ],
+    drivers: [
+      "Built missing infrastructure — payments and logistics.",
+      "Solved trust between strangers.",
+      "Turned payments into a fintech business.",
+    ],
+    lesson:
+      "In markets where basic infrastructure is missing, building it yourself can become your strongest moat.",
+    takeaways: [
+      "Identify the infrastructure gap blocking your customers.",
+      "Solving trust problems can unlock a market.",
+      "Infrastructure you build can become its own business.",
+    ],
+    lawSlugs: ["metcalfes-law", "teslers-law", "matthew-effect"],
+  },
+  {
+    slug: "nubank-digital-bank-brazil",
+    title: "Nubank: a purple card against Brazil's big banks",
+    company: "Nubank (Nu Holdings)",
+    country: "Brazil",
+    region: "Latin America",
+    period: "2013–2024",
+    kind: "build",
+    industrySlug: "financial-services",
+    summary:
+      "Nubank launched a no-fee credit card managed entirely by app in a market dominated by a few expensive banks. It grew to about 100 million customers and became one of the world's largest digital banks.",
+    story: [
+      "Colombian investor David Vélez was frustrated by Brazilian banks' long queues, fees, and high interest rates. A handful of big banks dominated the market. He co-founded Nubank in São Paulo in 2013 with Cristina Junqueira and Edward Wible.",
+      "In 2014 Nubank launched a purple credit card with no annual fee, managed entirely through an app with clear information and responsive customer service. Customers invited friends, and the waiting list grew rapidly. It later added a digital account, loans, investments, and insurance, and expanded to Mexico and Colombia.",
+      "Nubank listed on the NYSE in December 2021 at a valuation of about $41 billion. It became profitable and passed about 100 million customers in 2024.",
+    ],
+    keyNumbers: [
+      { label: "Founded", value: "2013" },
+      { label: "Card launch", value: "2014, no annual fee" },
+      { label: "IPO valuation (2021)", value: "about $41 billion" },
+      { label: "Customers (2024)", value: "about 100 million" },
+    ],
+    timeline: [
+      { year: "2013", event: "Founded in São Paulo." },
+      { year: "2014", event: "Credit card launches." },
+      { year: "2017", event: "Digital account launches." },
+      { year: "2021", event: "NYSE IPO." },
+    ],
+    drivers: [
+      "Attacked high fees and poor service in a concentrated market.",
+      "App-first design with transparency.",
+      "Referral-led growth with low acquisition costs.",
+    ],
+    lesson:
+      "Concentrated markets with high fees and poor service are ripe for a simpler, cheaper, friendlier challenger.",
+    takeaways: [
+      "Find industries customers dislike dealing with.",
+      "Make pricing transparent and fees low.",
+      "Let delighted customers do your marketing.",
+    ],
+    lawSlugs: ["social-proof", "liking-principle", "status-quo-bias"],
+  },
+  {
+    slug: "m-pesa-mobile-money-kenya",
+    title: "M-Pesa: mobile money for people without bank accounts",
+    company: "Safaricom (M-Pesa)",
+    country: "Kenya",
+    region: "Middle East & Africa",
+    period: "2007–2023",
+    kind: "build",
+    industrySlug: "financial-services",
+    summary:
+      "Safaricom let Kenyans send money by text message and cash in or out at local shops. M-Pesa spread to most adults and research linked it to lifting about 2% of Kenyan households out of extreme poverty.",
+    story: [
+      "Most Kenyans lacked bank accounts in the mid-2000s, and sending money to family in rural areas meant carrying cash or using expensive couriers. Mobile operator Safaricom, part-owned by Vodafone, piloted a mobile money service with UK government development funding.",
+      "M-Pesa launched in March 2007 with a simple message: ‘send money home’. It worked on basic phones via text menus. A network of local agents — often small shops — converted cash into mobile money and back. Adoption spread rapidly, and M-Pesa became used for wages, bills, and business payments.",
+      "A 2016 study in the journal Science estimated that access to M-Pesa lifted about 2% of Kenyan households out of extreme poverty, especially women-headed households. M-Pesa became a major source of Safaricom's revenue.",
+    ],
+    keyNumbers: [
+      { label: "Launch", value: "March 2007" },
+      { label: "Households lifted out of extreme poverty (2016 study)", value: "about 2%" },
+      { label: "Phone required", value: "basic feature phone" },
+    ],
+    timeline: [
+      { year: "2005", event: "Pilot developed with development funding." },
+      { year: "2007", event: "M-Pesa launches in Kenya." },
+      { year: "2012", event: "Savings and loan products added." },
+    ],
+    drivers: [
+      "Worked on the phones people already owned.",
+      "Agent network solved cash in and out.",
+      "Simple, emotional use case: send money home.",
+    ],
+    lesson:
+      "Building on infrastructure people already have — and a clear, emotional use case — can leapfrog traditional systems.",
+    takeaways: [
+      "Design for the devices your customers own today.",
+      "Partner with local shops as your network.",
+      "Lead with one simple, valuable use case.",
+    ],
+    lawSlugs: ["metcalfes-law", "jakobs-law", "law-of-focus"],
+  },
+  {
+    slug: "jumia-africa-ecommerce",
+    title: "Jumia: the ‘Amazon of Africa’ and the challenges of scale",
+    company: "Jumia",
+    country: "Nigeria",
+    region: "Middle East & Africa",
+    period: "2012–2023",
+    kind: "failure",
+    industrySlug: "d2c-ecommerce",
+    summary:
+      "Jumia became the first African tech start-up listed on the NYSE in 2019. Logistics costs, low incomes, fraud by some sales agents, and persistent losses forced it to shrink and refocus.",
+    story: [
+      "Jumia was founded in Lagos in 2012, backed by Rocket Internet, to bring e-commerce to Africa. It expanded across many countries, offering marketplace, food delivery, and payments services.",
+      "African e-commerce faced difficult conditions: poor addressing, expensive last-mile delivery, low card use, and low average order values. Jumia listed on the NYSE in April 2019 and its shares surged, then fell sharply after a short-seller report and disclosures that some sales agents had committed fraud.",
+      "Jumia exited several countries and closed food delivery in 2023, focusing on reducing losses rather than growth at all costs.",
+    ],
+    keyNumbers: [
+      { label: "Founded", value: "2012, Lagos" },
+      { label: "NYSE IPO", value: "April 2019" },
+      { label: "Food delivery closed", value: "2023" },
+    ],
+    timeline: [
+      { year: "2012", event: "Jumia founded." },
+      { year: "2019", event: "NYSE listing; short-seller report." },
+      { year: "2023", event: "Exits food delivery and some markets." },
+    ],
+    drivers: [
+      "Expanded across many countries with different conditions.",
+      "Infrastructure gaps made delivery expensive.",
+      "Weak controls over sales agents.",
+    ],
+    lesson:
+      "Copying a model that works elsewhere doesn't work if the infrastructure it depends on isn't there yet.",
+    takeaways: [
+      "Check whether local infrastructure supports your model.",
+      "Focus on fewer markets until economics work.",
+      "Strong controls matter as you scale.",
+    ],
+    lawSlugs: ["galls-law", "law-of-the-instrument", "optimism-bias"],
+  },
+  {
+    slug: "grameen-bank-microfinance",
+    title: "Grameen Bank: $27 that started microfinance",
+    company: "Grameen Bank",
+    country: "Bangladesh",
+    region: "Asia-Pacific",
+    period: "1976–2006",
+    kind: "build",
+    industrySlug: "financial-services",
+    summary:
+      "Economics professor Muhammad Yunus lent $27 to 42 village women. Grameen Bank grew into a lender to millions of poor borrowers, mostly women, and won the Nobel Peace Prize in 2006.",
+    story: [
+      "In 1976 Muhammad Yunus, an economics professor, met women in the village of Jobra who made bamboo stools but had to borrow from moneylenders at crippling rates. He lent $27 of his own money to 42 women.",
+      "Banks refused to lend to the poor without collateral. Yunus created a model of small loans to groups of borrowers, mostly women, who met regularly and supported each other's repayment. Grameen Bank was formally established in 1983 and reported high repayment rates.",
+      "Grameen grew to serve millions of borrowers, and microfinance spread worldwide. Yunus and Grameen Bank shared the 2006 Nobel Peace Prize. Later critics questioned high interest rates and over-indebtedness in parts of the microfinance industry.",
+    ],
+    keyNumbers: [
+      { label: "First loans (1976)", value: "$27 to 42 women" },
+      { label: "Bank established", value: "1983" },
+      { label: "Nobel Peace Prize", value: "2006" },
+    ],
+    timeline: [
+      { year: "1976", event: "Yunus makes first loans." },
+      { year: "1983", event: "Grameen Bank formally established." },
+      { year: "2006", event: "Nobel Peace Prize." },
+    ],
+    drivers: [
+      "Served customers banks ignored.",
+      "Group lending replaced collateral with trust.",
+      "Focused on women borrowers.",
+    ],
+    lesson:
+      "Customers everyone else considers too risky may be reliable if you design the product around how they live.",
+    takeaways: [
+      "Look at customers others refuse to serve.",
+      "Design trust mechanisms instead of demanding collateral.",
+      "Watch for unintended harm as models scale.",
+    ],
+    lawSlugs: ["commitment-and-consistency", "social-proof", "unity-principle"],
+  },
+  {
+    slug: "careem-uber-acquisition",
+    title: "Careem: the Middle East's $3.1 billion ride-hailing exit",
+    company: "Careem",
+    country: "United Arab Emirates",
+    region: "Middle East & Africa",
+    period: "2012–2019",
+    kind: "build",
+    industrySlug: "logistics-transport",
+    summary:
+      "Careem adapted ride-hailing to the Middle East and Pakistan — cash payments, local addresses, women's safety — and Uber bought it for about $3.1 billion in 2019, the region's biggest tech deal.",
+    story: [
+      "Mudassir Sheikha and Magnus Olsson, former McKinsey consultants, founded Careem in Dubai in 2012, initially for corporate car bookings. It expanded into consumer ride-hailing across the Middle East, North Africa, and Pakistan.",
+      "Careem adapted to local conditions: it accepted cash, built mapping for places with poor street addresses, called drivers ‘captains’ and invested in their training, and focused on safety features important to women riders, especially in Saudi Arabia.",
+      "In 2019 Uber agreed to buy Careem for about $3.1 billion, keeping the brand separate. It was the largest technology deal in the Middle East at the time.",
+    ],
+    keyNumbers: [
+      { label: "Founded", value: "2012, Dubai" },
+      { label: "Uber acquisition (2019)", value: "about $3.1 billion" },
+    ],
+    timeline: [
+      { year: "2012", event: "Careem founded." },
+      { year: "2016", event: "Expands rapidly across the region." },
+      { year: "2019", event: "Uber acquisition announced." },
+    ],
+    drivers: [
+      "Local adaptation — cash, addresses, safety.",
+      "Invested in driver quality.",
+      "Built regional scale before global rivals.",
+    ],
+    lesson:
+      "Deep local adaptation can make a regional player more valuable to a global giant than competing against it.",
+    takeaways: [
+      "Solve local problems global players overlook.",
+      "Invest in the people who deliver your service.",
+      "Build a strong regional position for strategic value.",
+    ],
+    lawSlugs: ["jakobs-law", "liking-principle", "matthew-effect"],
+  },
+  {
+    slug: "cemex-gps-concrete-delivery",
+    title: "Cemex: delivering concrete like a taxi service",
+    company: "Cemex",
+    country: "Mexico",
+    region: "Latin America",
+    period: "1985–2008",
+    kind: "build",
+    industrySlug: "construction-infrastructure",
+    summary:
+      "Mexican cement maker Cemex used GPS-tracked trucks and dynamic dispatching to cut delivery windows dramatically, and created a savings scheme for low-income home builders — then over-borrowed for acquisitions.",
+    story: [
+      "Ready-mix concrete must be delivered quickly before it sets, but construction sites often changed orders at the last minute. Under CEO Lorenzo Zambrano from 1985, Cemex studied how ambulances and couriers dispatched vehicles.",
+      "In the 1990s Cemex fitted trucks with GPS and computers and dispatched them dynamically, like taxis, rather than on fixed schedules. Delivery windows shrank from hours to around 20 minutes, letting Cemex charge more and use fewer trucks. In 1998 it launched Patrimonio Hoy, helping low-income families save weekly and receive materials and design advice to build homes step by step.",
+      "Cemex expanded globally through acquisitions, including Rinker in Australia for about $15 billion in 2007. The 2008 financial crisis left it heavily indebted, forcing asset sales.",
+    ],
+    keyNumbers: [
+      { label: "Zambrano becomes CEO", value: "1985" },
+      { label: "Delivery window", value: "from hours to about 20 minutes" },
+      { label: "Patrimonio Hoy launch", value: "1998" },
+      { label: "Rinker acquisition (2007)", value: "about $15 billion" },
+    ],
+    timeline: [
+      { year: "1985", event: "Zambrano takes charge." },
+      { year: "1990s", event: "GPS dynamic dispatching." },
+      { year: "1998", event: "Patrimonio Hoy launched." },
+      { year: "2008", event: "Debt crisis after acquisitions." },
+    ],
+    drivers: [
+      "Borrowed ideas from other industries.",
+      "Reliability turned a commodity into a premium service.",
+      "Served low-income builders with a tailored model.",
+      "Debt-funded expansion created fragility.",
+    ],
+    lesson:
+      "Speed and reliability can turn a commodity into a premium service — but debt-fuelled expansion can undo the gains.",
+    takeaways: [
+      "Look at how other industries solve similar logistics problems.",
+      "Sell reliability as a premium feature.",
+      "Keep debt manageable during expansion.",
+    ],
+    lawSlugs: ["littles-law", "doherty-threshold", "optimism-bias"],
+  },
+  {
+    slug: "samsung-frankfurt-declaration",
+    title: "Samsung's ‘New Management’: change everything but your wife and children",
+    company: "Samsung",
+    country: "South Korea",
+    region: "Asia-Pacific",
+    period: "1993–2012",
+    kind: "turnaround",
+    industrySlug: "electronics-retail",
+    summary:
+      "Chairman Lee Kun-hee declared that Samsung must change everything to compete on quality, famously had defective phones burned in front of staff, and turned Samsung into a global leader.",
+    story: [
+      "In the early 1990s Samsung was a large but second-tier electronics maker known for cheap products. In June 1993 in Frankfurt, chairman Lee Kun-hee told executives to ‘change everything except your wife and children’, shifting focus from quantity to quality.",
+      "In 1995, after discovering many defective mobile phones had been given away as gifts, Lee ordered around 150,000 phones and other devices to be piled up and burned at a factory in front of employees. The message was clear. Samsung invested heavily in design, memory chips, and displays.",
+      "Samsung became the world's largest memory-chip maker and, by 2012, overtook Nokia as the world's biggest mobile phone maker by units.",
+    ],
+    keyNumbers: [
+      { label: "Frankfurt Declaration", value: "June 1993" },
+      { label: "Devices burned (1995)", value: "around 150,000" },
+      { label: "World's largest phone maker", value: "by 2012" },
+    ],
+    timeline: [
+      { year: "1993", event: "Frankfurt ‘New Management’ declaration." },
+      { year: "1995", event: "Defective phones burned." },
+      { year: "2010", event: "First Galaxy S smartphone." },
+      { year: "2012", event: "Overtakes Nokia in phone units." },
+    ],
+    drivers: [
+      "Leader-driven culture shift to quality.",
+      "Dramatic symbolic action.",
+      "Heavy investment in core components.",
+    ],
+    lesson:
+      "A dramatic, symbolic act from the top can make a quality-first culture real for everyone in a large organisation.",
+    takeaways: [
+      "Make quality failures visible and unacceptable.",
+      "Use symbolic moments to signal real change.",
+      "Invest in the components that give you an edge.",
+    ],
+    lawSlugs: ["commitment-and-consistency", "von-restorff-effect", "pygmalion-effect"],
+  },
+  {
+    slug: "sony-walkman-launch",
+    title: "Sony Walkman: the product nobody asked for",
+    company: "Sony",
+    country: "Japan",
+    region: "Asia-Pacific",
+    period: "1979–2010",
+    kind: "build",
+    industrySlug: "electronics-retail",
+    summary:
+      "Sony launched a cassette player without a recording function or speaker — which many thought would fail. The Walkman created personal portable music and sold about 200 million cassette units.",
+    story: [
+      "Sony co-founder Masaru Ibuka wanted to listen to music on long flights. Engineers adapted a small cassette recorder into a playback-only device with lightweight headphones. Many inside Sony doubted anyone would buy a tape player that couldn't record.",
+      "Chairman Akio Morita pushed ahead, and the Walkman TPS-L2 launched on 1 July 1979. Sony promoted it by having young people use it in public. After a slow start, sales took off, and the Walkman created a new habit: personal music on the move.",
+      "Sony sold about 200 million cassette Walkmans before production ended in Japan in 2010. The idea of personal, portable music later continued through CD players, iPods, and smartphones.",
+    ],
+    keyNumbers: [
+      { label: "Launch", value: "1 July 1979" },
+      { label: "Cassette Walkmans sold", value: "about 200 million" },
+      { label: "Production ended in Japan", value: "2010" },
+    ],
+    timeline: [
+      { year: "1979", event: "Walkman launches." },
+      { year: "1984", event: "Discman portable CD player." },
+      { year: "2010", event: "Cassette Walkman production ends in Japan." },
+    ],
+    drivers: [
+      "Leader's conviction against internal doubt.",
+      "Removed features to make it small and simple.",
+      "Created a new behaviour, not just a product.",
+    ],
+    lesson:
+      "Sometimes customers can't ask for what they've never imagined — removing features can create a new category.",
+    takeaways: [
+      "Don't rely only on what customers say they want.",
+      "Consider what you could remove to make a product better.",
+      "Show the product in use to create new habits.",
+    ],
+    lawSlugs: ["law-of-the-category", "occams-razor", "social-proof"],
+  },
+  {
+    slug: "honda-super-cub-us-entry",
+    title: "Honda in America: ‘You meet the nicest people on a Honda’",
+    company: "Honda",
+    country: "United States",
+    region: "North America",
+    period: "1959–1966",
+    kind: "pivot",
+    industrySlug: "auto-dealerships",
+    summary:
+      "Honda came to the US to sell big motorcycles, which broke down. Its small Super Cub, which staff rode around Los Angeles, turned out to be the hit — and Honda captured a large share of the US market.",
+    story: [
+      "Honda entered the US in 1959 with a small team in Los Angeles, planning to compete in large motorcycles, which dominated the American market. Its big bikes, built for Japanese roads, leaked oil and had clutch failures on long American highways.",
+      "Team members rode small 50cc Super Cubs around Los Angeles for errands. People kept asking about them, and a Sears buyer showed interest. Honda shifted focus to the Super Cub and sold it through sporting goods stores, not just motorcycle dealers. A 1960s campaign, ‘You meet the nicest people on a Honda’, targeted ordinary people rather than the leather-jacketed biker image.",
+      "Honda's share of the US motorcycle market grew rapidly in the 1960s. The Super Cub went on to become the most-produced motor vehicle in history, passing 100 million units in 2017.",
+    ],
+    keyNumbers: [
+      { label: "US entry", value: "1959" },
+      { label: "Super Cub engine", value: "50cc" },
+      { label: "Super Cub units produced", value: "over 100 million (by 2017)" },
+    ],
+    timeline: [
+      { year: "1959", event: "Honda opens in Los Angeles." },
+      { year: "1960", event: "Focus shifts to the Super Cub." },
+      { year: "1963", event: "‘Nicest people’ campaign." },
+      { year: "2017", event: "Super Cub passes 100 million units." },
+    ],
+    drivers: [
+      "Noticed unplanned customer interest and followed it.",
+      "Targeted a new customer segment.",
+      "New distribution channels beyond traditional dealers.",
+    ],
+    lesson:
+      "Plans often fail; success comes from noticing what customers respond to and having the flexibility to switch.",
+    takeaways: [
+      "Pay attention to unexpected customer interest.",
+      "Be ready to abandon your original plan.",
+      "Reach new customers through new channels.",
+    ],
+    lawSlugs: ["law-of-the-category", "framing-effect", "sunk-cost-fallacy"],
+  },
+  {
+    slug: "tsmc-pure-play-foundry",
+    title: "TSMC: manufacturing chips for everyone else",
+    company: "TSMC",
+    country: "Taiwan",
+    region: "Asia-Pacific",
+    period: "1987–2023",
+    kind: "build",
+    industrySlug: "manufacturing",
+    strategySlug: "asset-light-outsourcing",
+    summary:
+      "Morris Chang founded TSMC to manufacture chips designed by other companies without competing with them. The model enabled companies like Nvidia and Apple, and TSMC came to make most of the world's advanced chips.",
+    story: [
+      "In 1987, with backing from the Taiwanese government and Philips, Morris Chang — a former Texas Instruments executive — founded Taiwan Semiconductor Manufacturing Company. At the time, chip companies designed and manufactured their own chips.",
+      "TSMC's ‘pure-play foundry’ model meant it only manufactured, never designing chips of its own, so customers could trust it with their designs. This allowed ‘fabless’ chip designers — such as Nvidia, Qualcomm, AMD, and later Apple — to exist without building multi-billion-dollar factories. TSMC reinvested heavily to stay ahead in manufacturing technology.",
+      "TSMC held around 60% of the global foundry market in 2023 and made most of the world's most advanced chips, with revenue of about $69 billion that year.",
+    ],
+    keyNumbers: [
+      { label: "Founded", value: "1987" },
+      { label: "Global foundry share (2023)", value: "around 60%" },
+      { label: "Revenue (2023)", value: "about $69 billion" },
+    ],
+    timeline: [
+      { year: "1987", event: "TSMC founded." },
+      { year: "1997", event: "Lists on the NYSE." },
+      { year: "2014", event: "Begins making Apple's processors." },
+    ],
+    drivers: [
+      "Never competed with its customers.",
+      "Enabled a new type of company (fabless designers).",
+      "Relentless investment in manufacturing technology.",
+    ],
+    lesson:
+      "Becoming the trusted, neutral supplier to an entire industry can be more powerful than competing within it.",
+    takeaways: [
+      "Could you serve all competitors in your industry?",
+      "Earn trust by not competing with customers.",
+      "Reinvest to stay ahead in your core capability.",
+    ],
+    lawSlugs: ["comparative-advantage", "wrights-law", "matthew-effect"],
+  },
+  {
+    slug: "arm-licensing-model",
+    title: "Arm: designing chips and letting others make them",
+    company: "Arm",
+    country: "United Kingdom",
+    region: "Europe",
+    period: "1990–2023",
+    kind: "build",
+    industrySlug: "saas-tech",
+    summary:
+      "Arm licenses energy-efficient chip designs rather than making chips. Its designs power nearly all smartphones, with tens of billions of Arm-based chips shipped a year.",
+    story: [
+      "Arm was spun out of British computer maker Acorn in 1990 as a joint venture with Apple and chipmaker VLSI, starting with about a dozen engineers near Cambridge. Its chip design was simple and energy-efficient — ideal for battery-powered devices.",
+      "Rather than manufacture chips, Arm licensed its designs to other companies and earned royalties on every chip made. Phone makers such as Nokia used Arm-based chips, and when smartphones arrived, Arm became the standard. Its business model meant every partner's success increased Arm's royalties.",
+      "SoftBank bought Arm in 2016 for about £24 billion, and Arm relisted on Nasdaq in 2023. Partners ship tens of billions of Arm-based chips a year, used in almost all smartphones.",
+    ],
+    keyNumbers: [
+      { label: "Founded", value: "1990" },
+      { label: "Engineers at start", value: "about a dozen" },
+      { label: "SoftBank acquisition (2016)", value: "about £24 billion" },
+      { label: "Nasdaq relisting", value: "2023" },
+    ],
+    timeline: [
+      { year: "1990", event: "Arm spun out of Acorn." },
+      { year: "1993", event: "Arm chip powers Apple's Newton." },
+      { year: "2016", event: "Acquired by SoftBank." },
+      { year: "2023", event: "Nasdaq IPO." },
+    ],
+    drivers: [
+      "Licensing scaled without factories.",
+      "Energy efficiency matched the mobile revolution.",
+      "Neutral partner to many chipmakers.",
+    ],
+    lesson:
+      "Licensing intellectual property to many partners can create a global standard and scalable royalty income.",
+    takeaways: [
+      "Could you license your know-how instead of producing?",
+      "Design for where the market is heading.",
+      "Neutrality can make you everyone's partner.",
+    ],
+    lawSlugs: ["metcalfes-law", "comparative-advantage", "moores-law"],
+  },
+  {
+    slug: "supercell-small-cells-big-hits",
+    title: "Supercell: small teams and celebrating failure",
+    company: "Supercell",
+    country: "Finland",
+    region: "Europe",
+    period: "2010–2023",
+    kind: "build",
+    industrySlug: "media-entertainment",
+    summary:
+      "Supercell organised into tiny independent teams, killed most games before launch, and celebrated failures with champagne. Hits like Clash of Clans led Tencent to value it at about $10 billion.",
+    story: [
+      "Ilkka Paananen and five co-founders started Supercell in Helsinki in 2010. They organised the company into small, independent ‘cells’ — teams of a handful of people who decide what to build and whether to kill it.",
+      "Teams test games with real players and kill those that don't meet high standards, even after long development. Supercell famously celebrates failures with champagne to make learning safe. Hay Day and Clash of Clans launched in 2012, followed by Boom Beach, Clash Royale, and Brawl Stars.",
+      "In 2016 China's Tencent bought a majority stake at a valuation of about $10.2 billion. Supercell has kept a relatively small workforce while generating billions in revenue.",
+    ],
+    keyNumbers: [
+      { label: "Founded", value: "2010" },
+      { label: "Clash of Clans launch", value: "2012" },
+      { label: "Tencent deal valuation (2016)", value: "about $10.2 billion" },
+    ],
+    timeline: [
+      { year: "2010", event: "Supercell founded." },
+      { year: "2012", event: "Hay Day and Clash of Clans." },
+      { year: "2016", event: "Tencent majority investment; Clash Royale." },
+    ],
+    drivers: [
+      "Small, autonomous teams with ownership.",
+      "Ruthless killing of weak products.",
+      "Culture where failure is safe and celebrated.",
+    ],
+    lesson:
+      "Small teams with real authority, and a culture that celebrates killing weak ideas, can repeatedly produce hits.",
+    takeaways: [
+      "Keep teams small and accountable.",
+      "Set a high bar and stop projects that don't meet it.",
+      "Make it safe to admit failure.",
+    ],
+    lawSlugs: ["sturgeons-law", "ringelmann-effect", "sunk-cost-fallacy"],
+  },
+  {
+    slug: "wise-transparent-transfers",
+    title: "Wise: exposing banks' hidden exchange-rate fees",
+    company: "Wise (formerly TransferWise)",
+    country: "United Kingdom",
+    region: "Europe",
+    period: "2011–2024",
+    kind: "build",
+    industrySlug: "financial-services",
+    summary:
+      "Two Estonians tired of hidden bank fees on currency transfers built TransferWise around the real exchange rate and a transparent fee. Wise listed in London in 2021 valued at about £8 billion.",
+    story: [
+      "Kristo Käärmann was paid in euros and needed pounds; Taavet Hinrikus, Skype's first employee, was paid in pounds and needed euros. They swapped money privately at the mid-market rate, avoiding banks' marked-up exchange rates. In 2011 they launched TransferWise in London.",
+      "TransferWise matched transfers in different directions so money often didn't have to cross borders, cutting costs. It charged a clear, upfront fee and always used the mid-market rate, and ran campaigns attacking banks' hidden fees. Customers recommended it to friends.",
+      "Renamed Wise, it listed directly on the London Stock Exchange in 2021 at a valuation of about £8 billion. It moved over £100 billion across borders in its 2024 financial year.",
+    ],
+    keyNumbers: [
+      { label: "Founded", value: "2011" },
+      { label: "Valuation at listing (2021)", value: "about £8 billion" },
+      { label: "Cross-border volume (FY2024)", value: "over £100 billion" },
+    ],
+    timeline: [
+      { year: "2011", event: "TransferWise launches." },
+      { year: "2017", event: "Becomes profitable." },
+      { year: "2021", event: "Renamed Wise; London listing." },
+    ],
+    drivers: [
+      "Transparency exposed a hidden industry cost.",
+      "Clever matching cut real costs.",
+      "Word of mouth from saved money.",
+    ],
+    lesson:
+      "Exposing a hidden cost customers resent, and charging transparently, can build trust and fast growth.",
+    takeaways: [
+      "Find hidden fees in your industry customers dislike.",
+      "Make your pricing radically clear.",
+      "Let savings drive referrals.",
+    ],
+    lawSlugs: ["loss-aversion", "law-of-one-price", "framing-effect"],
+  },
+  {
+    slug: "adyen-single-payments-platform",
+    title: "Adyen: one payments platform for the world's biggest brands",
+    company: "Adyen",
+    country: "Netherlands",
+    region: "Europe",
+    period: "2006–2023",
+    kind: "build",
+    industrySlug: "financial-services",
+    summary:
+      "Adyen built a single, in-house payments platform covering online, in-store, and global methods. Clients like Uber and Spotify joined, and eBay moved its payments from PayPal to Adyen.",
+    story: [
+      "Pieter van der Does and Arnout Schuijff, who had previously sold a payments company, founded Adyen in Amsterdam in 2006. Large merchants used patchworks of payment providers for different countries and channels, making payments costly and complex.",
+      "Adyen built one platform from scratch to process payments online, in apps, and in stores across many countries and payment methods. It grew profitably and won global clients including Uber, Spotify, Netflix, and Microsoft. In 2018 eBay announced it would move payments from PayPal to Adyen.",
+      "Adyen listed on Euronext Amsterdam in 2018, with its shares rising sharply on the first day. It processed nearly €1 trillion of payments in 2023.",
+    ],
+    keyNumbers: [
+      { label: "Founded", value: "2006, Amsterdam" },
+      { label: "IPO", value: "2018, Euronext" },
+      { label: "Payments processed (2023)", value: "nearly €1 trillion" },
+    ],
+    timeline: [
+      { year: "2006", event: "Adyen founded." },
+      { year: "2011", event: "Profitable growth with global merchants." },
+      { year: "2018", event: "IPO; eBay deal announced." },
+    ],
+    drivers: [
+      "Single platform reduced complexity for big clients.",
+      "Built everything in-house for control and speed.",
+      "Profitability gave stability and trust.",
+    ],
+    lesson:
+      "Replacing a messy patchwork of suppliers with one integrated solution can win the biggest customers.",
+    takeaways: [
+      "Where do your customers juggle many suppliers?",
+      "Owning your technology can be an advantage.",
+      "Profitability builds trust with large clients.",
+    ],
+    lawSlugs: ["teslers-law", "occams-razor", "matthew-effect"],
+  },
+  {
+    slug: "byd-batteries-to-ev-leader",
+    title: "BYD: from phone batteries to the world's biggest EV maker",
+    company: "BYD",
+    country: "China",
+    region: "Asia-Pacific",
+    period: "1995–2023",
+    kind: "build",
+    industrySlug: "manufacturing",
+    strategySlug: "vertical-integration",
+    summary:
+      "Wang Chuanfu started BYD making phone batteries in 1995, entered cars in 2003, won Warren Buffett's backing, and in late 2023 overtook Tesla in quarterly battery-electric car sales.",
+    story: [
+      "Chemist Wang Chuanfu founded BYD in Shenzhen in 1995 to make rechargeable batteries, using labour-intensive processes to compete with Japanese producers on cost. It became a major supplier of phone batteries.",
+      "BYD bought a struggling carmaker in 2003. Its battery expertise gave it an advantage in electric and hybrid vehicles, and it produced many key parts itself, including batteries and chips. In 2008 Warren Buffett's Berkshire Hathaway invested about $230 million for roughly 10% of the company. Chinese government support for electric vehicles accelerated growth.",
+      "BYD stopped making purely petrol-powered cars in 2022. In the last quarter of 2023 it sold more battery-electric vehicles than Tesla, and it sold about three million ‘new energy’ vehicles that year.",
+    ],
+    keyNumbers: [
+      { label: "Founded", value: "1995, batteries" },
+      { label: "Entered cars", value: "2003" },
+      { label: "Berkshire Hathaway investment (2008)", value: "about $230 million" },
+      { label: "New-energy vehicles sold (2023)", value: "about 3 million" },
+    ],
+    timeline: [
+      { year: "1995", event: "BYD founded." },
+      { year: "2003", event: "Enters the car industry." },
+      { year: "2008", event: "Berkshire Hathaway invests." },
+      { year: "2022", event: "Stops making petrol-only cars." },
+      { year: "2023", event: "Overtakes Tesla in quarterly BEV sales." },
+    ],
+    drivers: [
+      "Core battery expertise became the key EV component.",
+      "Vertical integration lowered costs.",
+      "Supportive home-market policy.",
+    ],
+    lesson:
+      "Mastering the most important component of a future product can let a supplier become the market leader.",
+    takeaways: [
+      "Identify the critical component in your industry's future.",
+      "Control key inputs to manage cost.",
+      "Ride favourable policy trends.",
+    ],
+    lawSlugs: ["wrights-law", "amaras-law", "comparative-advantage"],
+  },
+];

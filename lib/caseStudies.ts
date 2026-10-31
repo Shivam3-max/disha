@@ -1,3 +1,13 @@
+import { CASES_GLOBAL_1 } from "./casesGlobal1";
+import { CASES_GLOBAL_2 } from "./casesGlobal2";
+import { CASES_GLOBAL_3 } from "./casesGlobal3";
+import { CASES_GLOBAL_4 } from "./casesGlobal4";
+import { CASES_GLOBAL_5 } from "./casesGlobal5";
+import { CASES_GLOBAL_6 } from "./casesGlobal6";
+import { CASES_GLOBAL_7 } from "./casesGlobal7";
+import { CASES_GLOBAL_8 } from "./casesGlobal8";
+import { CASES_GLOBAL_9 } from "./casesGlobal9";
+import { CASES_GLOBAL_10 } from "./casesGlobal10";
 import type { CaseStudy } from "./knowledgeTypes";
 import { CASE_STUDIES_2 } from "./caseStudies2";
 
@@ -387,4 +397,17 @@ export const CASE_STUDIES_1: CaseStudy[] = [
   },
 ];
 
-export const CASE_STUDIES: CaseStudy[] = [...CASE_STUDIES_1, ...CASE_STUDIES_2];
+export const CASES_GLOBAL: CaseStudy[] = [
+  ...CASES_GLOBAL_1,
+  ...CASES_GLOBAL_2,
+  ...CASES_GLOBAL_3,
+  ...CASES_GLOBAL_4,
+  ...CASES_GLOBAL_5,
+  ...CASES_GLOBAL_6,
+  ...CASES_GLOBAL_7,
+  ...CASES_GLOBAL_8,
+  ...CASES_GLOBAL_9,
+  ...CASES_GLOBAL_10,
+];
+
+export const CASE_STUDIES: CaseStudy[] = [...CASE_STUDIES_1, ...CASE_STUDIES_2, ...CASES_GLOBAL];

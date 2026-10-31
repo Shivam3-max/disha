@@ -74,6 +74,23 @@ export const CASE_STUDY_KIND_LABEL: Record<CaseStudyKind, string> = {
   failure: "Failure pattern",
 };
 
+export type CaseRegion =
+  | "North America"
+  | "Europe"
+  | "Asia-Pacific"
+  | "India"
+  | "Latin America"
+  | "Middle East & Africa";
+
+export const CASE_REGIONS: CaseRegion[] = [
+  "North America",
+  "Europe",
+  "Asia-Pacific",
+  "India",
+  "Latin America",
+  "Middle East & Africa",
+];
+
 export type CaseStudy = {
   slug: string;
   title: string;
@@ -83,6 +100,17 @@ export type CaseStudy = {
   summary: string;
   story: string[];
   lesson: string;
+  /** Detailed-format fields (global case library). */
+  company?: string;
+  country?: string;
+  region?: CaseRegion;
+  period?: string;
+  keyNumbers?: { label: string; value: string }[];
+  timeline?: { year: string; event: string }[];
+  /** What made it work — or, for failures, what went wrong. */
+  drivers?: string[];
+  takeaways?: string[];
+  lawSlugs?: string[];
 };
 
 export type GlossaryCategory = "Finance" | "Marketing" | "Sales" | "Operations" | "People" | "Strategy";
