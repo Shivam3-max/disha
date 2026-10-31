@@ -8,6 +8,7 @@ import { CASES_GLOBAL_7 } from "./casesGlobal7";
 import { CASES_GLOBAL_8 } from "./casesGlobal8";
 import { CASES_GLOBAL_9 } from "./casesGlobal9";
 import { CASES_GLOBAL_10 } from "./casesGlobal10";
+import { SHARK_TANK_CASES } from "./sharkTank";
 import type { CaseStudy } from "./knowledgeTypes";
 import { CASE_STUDIES_2 } from "./caseStudies2";
 
@@ -410,4 +411,4 @@ export const CASES_GLOBAL: CaseStudy[] = [
   ...CASES_GLOBAL_10,
 ];
 
-export const CASE_STUDIES: CaseStudy[] = [...CASE_STUDIES_1, ...CASE_STUDIES_2, ...CASES_GLOBAL];
+export const CASE_STUDIES: CaseStudy[] = [...CASE_STUDIES_1, ...CASE_STUDIES_2, ...CASES_GLOBAL, ...SHARK_TANK_CASES];

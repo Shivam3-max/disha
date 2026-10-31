@@ -8,7 +8,7 @@ import { FilterChips } from "@/components/FilterChips";
 
 export type CaseListItem = Pick<
   CaseStudy,
-  "slug" | "title" | "kind" | "industrySlug" | "summary" | "company" | "country" | "region" | "period"
+  "slug" | "title" | "kind" | "industrySlug" | "summary" | "company" | "country" | "region" | "period" | "collection"
 >;
 
 const KIND_LABELS = Object.values(CASE_STUDY_KIND_LABEL);
@@ -51,6 +51,23 @@ export function CaseStudiesBrowser({
         Builds, pivots, turnarounds, and honest failures from India and around the world — with the key
         numbers, a timeline, what made it work or fail, and how to apply the lesson to your own business.
       </p>
+
+      <Link
+        href="/case-studies/shark-tank-india"
+        className="ledger-card group mt-8 flex flex-col gap-1 p-5 transition-all hover:shadow-[6px_6px_0_0_var(--color-ink)] sm:flex-row sm:items-center sm:justify-between"
+      >
+        <span>
+          <span className="rule-label">new collection</span>
+          <span className="font-display mt-1 block text-2xl font-semibold group-hover:text-vermillion">
+            Shark Tank India case studies
+          </span>
+          <span className="mt-1 block text-sm text-ink-soft">
+            {cases.filter((c) => c.collection === "shark-tank-india").length} pitches — the deal, implied valuation and
+            business lesson behind each.
+          </span>
+        </span>
+        <span className="rule-label shrink-0">explore →</span>
+      </Link>
 
       <div className="mt-8">
         <FilterChips options={KIND_LABELS} active={kindLabel} onChange={setKindLabel} counts={counts} />

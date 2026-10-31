@@ -1,7 +1,9 @@
 "use client";
 
 import { useMemo, useState, useEffect } from "react";
+import Link from "next/link";
 import { GLOSSARY } from "@/lib/glossary";
+import { glossarySlug } from "@/lib/glossaryDetails";
 import { GLOSSARY_CATEGORIES, type GlossaryCategory } from "@/lib/knowledgeTypes";
 import { JsonLd } from "@/components/JsonLd";
 import { absoluteUrl } from "@/lib/site";
@@ -73,10 +75,15 @@ export default function GlossaryPage() {
         {filtered.map((g) => (
           <div key={g.term} id={g.term.toLowerCase().replace(/[^a-z0-9]+/g, "-")} className="ledger-card-flat p-4">
             <p className="flex items-baseline justify-between gap-3">
-              <span className="font-display text-lg font-semibold">{g.term}</span>
+              <Link href={`/glossary/${glossarySlug(g.term)}`} className="font-display text-lg font-semibold hover:text-vermillion">
+                {g.term}
+              </Link>
               <span className="rule-label shrink-0">{g.category}</span>
             </p>
             <p className="mt-1 text-sm leading-relaxed text-ink-soft">{g.definition}</p>
+            <Link href={`/glossary/${glossarySlug(g.term)}`} className="rule-label mt-2 inline-block hover:text-vermillion">
+              formula, example & FAQs →
+            </Link>
           </div>
         ))}
       </div>
