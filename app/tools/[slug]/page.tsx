@@ -22,6 +22,20 @@ import { ContentCalendar } from "@/components/tools/ContentCalendar";
 import { CompetitorMatrix } from "@/components/tools/CompetitorMatrix";
 import { CashFlowSimulator } from "@/components/tools/CashFlowSimulator";
 import { SwotBuilder } from "@/components/tools/SwotBuilder";
+import {
+  CagrCalculator,
+  CompoundInterestCalculator,
+  DiscountCalculator,
+  EmiCalculator,
+  GstCalculator,
+  IncomeTaxCalculator,
+  MarkupCalculator,
+  ProfitMarginCalculator,
+  RoiCalculator,
+  SalaryCalculator,
+  SipCalculator,
+  WorkingCapitalCalculator,
+} from "@/components/tools/Calculators";
 
 const COMPONENTS: Record<string, React.ComponentType> = {
   "revenue-multiplier": RevenueMultiplier,
@@ -42,6 +56,18 @@ const COMPONENTS: Record<string, React.ComponentType> = {
   "competitor-matrix": CompetitorMatrix,
   "cash-flow-simulator": CashFlowSimulator,
   "swot-builder": SwotBuilder,
+  "gst-calculator": GstCalculator,
+  "emi-calculator": EmiCalculator,
+  "sip-calculator": SipCalculator,
+  "cagr-calculator": CagrCalculator,
+  "compound-interest-calculator": CompoundInterestCalculator,
+  "profit-margin-calculator": ProfitMarginCalculator,
+  "markup-calculator": MarkupCalculator,
+  "discount-calculator": DiscountCalculator,
+  "roi-calculator": RoiCalculator,
+  "working-capital-calculator": WorkingCapitalCalculator,
+  "salary-calculator": SalaryCalculator,
+  "income-tax-calculator": IncomeTaxCalculator,
 };
 
 export function generateStaticParams() {

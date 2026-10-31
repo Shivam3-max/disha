@@ -55,6 +55,7 @@ const DESKTOP_LINKS: [string, string][] = [
   ["/checkup", "Health checkup"],
   ["/journeys", "Journeys"],
   ["/tools", "Tools"],
+  ["/calculators", "Calculators"],
   ["/frameworks", "Frameworks"],
   ["/laws", "Laws"],
   ["/case-studies", "Case studies"],
@@ -77,6 +78,7 @@ const MOBILE_MENU: MenuGroup[] = [
     label: "do the work",
     links: [
       { href: "/tools", label: "Tools" },
+      { href: "/calculators", label: "Calculators" },
       { href: "/frameworks", label: "Frameworks" },
       { href: "/templates", label: "Templates" },
       { href: "/learn", label: "Learn" },
@@ -118,6 +120,7 @@ const LEGAL_LINKS: [string, string][] = [
 
 const FOOTER_LINKS: [string, string][] = [
   ["/tools", "Business tools"],
+  ["/calculators", "Calculators"],
   ["/frameworks", "Frameworks"],
   ["/laws", "Business & psychology laws"],
   ["/strategies", "Strategy atlas"],

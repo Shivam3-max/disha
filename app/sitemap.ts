@@ -25,6 +25,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
 
   const hubs = [
     "/tools",
+    "/calculators",
     "/frameworks",
     "/laws",
     "/strategies",
