@@ -11,6 +11,7 @@ import { TEMPLATES } from "@/lib/templates";
 import { COMPLIANCE_TOPICS } from "@/lib/compliance";
 import { LAWS, LAW_CATEGORIES } from "@/lib/laws";
 import { GLOSSARY_ENTRIES } from "@/lib/glossaryDetails";
+import { COMPANIES } from "@/lib/companies";
 
 type Entry = MetadataRoute.Sitemap[number];
 
@@ -32,6 +33,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     "/industries",
     "/case-studies",
     "/case-studies/shark-tank-india",
+    "/companies",
     "/learn",
     "/learn/flagship-schedule",
     "/journeys",
@@ -57,6 +59,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     ...STRATEGIES.map((s) => page(`/strategies/${s.slug}`, 0.6)),
     ...INDUSTRIES.map((i) => page(`/industries/${i.slug}`, 0.6)),
     ...CASE_STUDIES.map((c) => page(`/case-studies/${c.slug}`, 0.6)),
+    ...COMPANIES.map((c) => page(`/companies/${c.slug}`, 0.6)),
     ...JOURNEYS.map((j) => page(`/journeys/${j.slug}`, 0.5)),
     ...LEARN_DAYS.map((d) => page(`/learn/${d.slug}`, 0.5)),
     ...TEMPLATES.map((t) => page(`/templates/${t.slug}`, 0.5)),

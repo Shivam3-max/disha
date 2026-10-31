@@ -10,6 +10,7 @@ import { TEMPLATES } from "./templates";
 import { COMPLIANCE_TOPICS } from "./compliance";
 import { LAWS, LAW_CATEGORIES } from "./laws";
 import { glossarySlug } from "./glossaryDetails";
+import { COMPANIES } from "./companies";
 
 export type SearchItemType =
   | "Tool"
@@ -19,6 +20,7 @@ export type SearchItemType =
   | "Industry"
   | "Strategy"
   | "Law"
+  | "Company"
   | "Case study"
   | "Glossary"
   | "Template"
@@ -66,6 +68,9 @@ function buildIndex(): SearchItem[] {
   for (const l of LAWS) {
     const cat = LAW_CATEGORIES.find((c) => c.slug === l.category)?.name ?? "";
     items.push({ type: "Law", title: l.name, description: l.oneLiner, href: `/laws/${l.slug}`, keywords: `${l.name} ${(l.aka ?? []).join(" ")} ${cat} law principle effect` });
+  }
+  for (const c of COMPANIES) {
+    items.push({ type: "Company", title: `${c.name} SWOT & business model`, description: c.model.value, href: `/companies/${c.slug}`, keywords: `${c.name} SWOT analysis business model marketing strategy 4Ps ${c.sector}` });
   }
   for (const c of CASE_STUDIES) {
     items.push({ type: "Case study", title: c.title, description: c.summary, href: `/case-studies/${c.slug}`, keywords: `${c.title} ${c.summary} ${c.kind}` });
