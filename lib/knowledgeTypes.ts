@@ -142,6 +142,8 @@ export type DocTemplate = {
   category: string;
   description: string;
   blocks: TemplateBlock[];
+  /** How-to guide shown under the template. */
+  guide?: { intro: string[]; include: string[]; tips: string[]; faqs: { q: string; a: string }[] };
 };
 
 export type ComplianceTopic = {
