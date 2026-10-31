@@ -1,19 +1,20 @@
 "use client";
 
-import { Suspense, useMemo, useState, useEffect } from "react";
-import { useSearchParams } from "next/navigation";
+import { useMemo, useState, useEffect } from "react";
 import { GLOSSARY } from "@/lib/glossary";
 import { GLOSSARY_CATEGORIES, type GlossaryCategory } from "@/lib/knowledgeTypes";
+import { JsonLd } from "@/components/JsonLd";
+import { absoluteUrl } from "@/lib/site";
 
-function GlossaryInner() {
-  const searchParams = useSearchParams();
+export default function GlossaryPage() {
   const [query, setQuery] = useState("");
   const [category, setCategory] = useState<GlossaryCategory | "All">("All");
 
+  // Read ?q= after hydration so the full list is still prerendered for search engines.
   useEffect(() => {
-    const q = searchParams.get("q");
+    const q = new URLSearchParams(window.location.search).get("q");
     if (q) setQuery(q);
-  }, [searchParams]);
+  }, []);
 
   const filtered = useMemo(() => {
     const q = query.trim().toLowerCase();
@@ -26,6 +27,15 @@ function GlossaryInner() {
 
   return (
     <main className="mx-auto max-w-3xl px-5 py-14">
+      <JsonLd
+        data={{
+          "@context": "https://schema.org",
+          "@type": "DefinedTermSet",
+          name: "Business glossary",
+          url: absoluteUrl("/glossary"),
+          hasDefinedTerm: GLOSSARY.map((g) => ({ "@type": "DefinedTerm", name: g.term, description: g.definition })),
+        }}
+      />
       <p className="rule-label mb-3">{GLOSSARY.length} terms, plainly explained</p>
       <h1 className="font-display text-4xl font-semibold md:text-5xl">Business glossary</h1>
       <p className="mt-4 max-w-xl leading-relaxed text-ink-soft">
@@ -74,10 +84,3 @@ function GlossaryInner() {
   );
 }
 
-export default function GlossaryPage() {
-  return (
-    <Suspense fallback={<main className="mx-auto max-w-3xl px-5 py-14" />}>
-      <GlossaryInner />
-    </Suspense>
-  );
-}

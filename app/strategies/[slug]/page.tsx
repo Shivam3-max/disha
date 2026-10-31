@@ -6,6 +6,7 @@ import { STRATEGIES } from "@/lib/strategies";
 import { INDUSTRIES } from "@/lib/industries";
 import { CASE_STUDIES } from "@/lib/caseStudies";
 import { starterKitHref } from "@/lib/knowledgeTypes";
+import { Byline } from "@/components/Byline";
 
 export function generateStaticParams() {
   return STRATEGIES.map((s) => ({ slug: s.slug }));
@@ -38,6 +39,7 @@ export default async function StrategyPage({
     <main className="mx-auto max-w-3xl px-5 py-14">
       <p className="rule-label mb-3">{s.category} · strategy atlas</p>
       <h1 className="font-display text-4xl font-semibold leading-tight md:text-5xl">{s.name}</h1>
+      <Byline />
 
       <section className="ledger-card-flat mt-8 p-6">
         <p className="rule-label mb-2">what it means</p>

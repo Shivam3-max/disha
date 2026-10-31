@@ -6,7 +6,8 @@ import { INDUSTRIES } from "@/lib/industries";
 import { STRATEGIES } from "@/lib/strategies";
 import { getLaw } from "@/lib/laws";
 import { CASE_STUDY_KIND_LABEL } from "@/lib/knowledgeTypes";
-import { SITE_NAME, absoluteUrl, pageMeta } from "@/lib/site";
+import { CONTENT_REVIEWED, FOUNDER_NAME, SITE_NAME, absoluteUrl, pageMeta } from "@/lib/site";
+import { Byline } from "@/components/Byline";
 import { Breadcrumbs } from "@/components/Breadcrumbs";
 import { JsonLd } from "@/components/JsonLd";
 
@@ -63,7 +64,9 @@ export default async function CaseStudyPage({
           url,
           mainEntityOfPage: url,
           articleSection: "Business case studies",
-          author: { "@type": "Organization", name: SITE_NAME, url: absoluteUrl("/") },
+          author: { "@type": "Person", name: FOUNDER_NAME, url: absoluteUrl("/about") },
+          datePublished: CONTENT_REVIEWED,
+          dateModified: CONTENT_REVIEWED,
           publisher: { "@type": "Organization", name: SITE_NAME, url: absoluteUrl("/") },
           ...(c.company ? { about: { "@type": "Organization", name: c.company } } : {}),
         }}
@@ -83,6 +86,7 @@ export default async function CaseStudyPage({
         </p>
         <h1 className="font-display text-4xl font-semibold leading-tight md:text-5xl">{c.title}</h1>
         <p className="mt-3 max-w-xl text-lg italic text-vermillion">{c.summary}</p>
+        <Byline />
 
         <div className="mt-6 flex flex-wrap gap-2">
           {industry && (
