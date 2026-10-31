@@ -8,6 +8,7 @@ const TYPE_ORDER: SearchItemType[] = [
   "Industry",
   "Strategy",
   "Law",
+  "Company",
   "Case study",
   "Tool",
   "Framework",

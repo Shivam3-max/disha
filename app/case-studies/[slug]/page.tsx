@@ -5,6 +5,7 @@ import { CASE_STUDIES } from "@/lib/caseStudies";
 import { INDUSTRIES } from "@/lib/industries";
 import { STRATEGIES } from "@/lib/strategies";
 import { getLaw } from "@/lib/laws";
+import { COMPANIES } from "@/lib/companies";
 import { CASE_STUDY_KIND_LABEL } from "@/lib/knowledgeTypes";
 import { CONTENT_REVIEWED, FOUNDER_NAME, SITE_NAME, absoluteUrl, pageMeta } from "@/lib/site";
 import { Byline } from "@/components/Byline";
@@ -51,6 +52,7 @@ export default async function CaseStudyPage({
   const laws = (c.lawSlugs ?? []).map(getLaw).filter((l) => l !== undefined);
   const related = CASE_STUDIES.filter((x) => x.slug !== c.slug && x.industrySlug === c.industrySlug).slice(0, 4);
   const failed = c.kind === "failure";
+  const company = COMPANIES.find((x) => x.caseSlug === c.slug);
   const url = absoluteUrl(`/case-studies/${c.slug}`);
 
   return (
@@ -97,6 +99,11 @@ export default async function CaseStudyPage({
           {strategy && (
             <Link href={`/strategies/${strategy.slug}`} className="btn-outline px-3 py-1.5 text-sm">
               {strategy.name} →
+            </Link>
+          )}
+          {company && (
+            <Link href={`/companies/${company.slug}`} className="btn-outline px-3 py-1.5 text-sm">
+              {company.name} SWOT &amp; business model →
             </Link>
           )}
         </div>

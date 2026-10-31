@@ -186,3 +186,33 @@ export type Law = {
   caseStudySlugs?: string[];
   link?: StarterKitLink;
 };
+
+export type CompanyAnalysis = {
+  slug: string;
+  name: string;
+  /** Short descriptor shown under the name, e.g. "Dairy cooperative". */
+  sector: string;
+  industrySlug: string;
+  founded: string;
+  hq: string;
+  overview: string[];
+  swot: { strengths: string[]; weaknesses: string[]; opportunities: string[]; threats: string[] };
+  model: {
+    customers: string;
+    value: string;
+    revenue: string[];
+    costs: string[];
+    channels: string[];
+    resources: string[];
+  };
+  marketing: {
+    positioning: string;
+    product: string;
+    price: string;
+    place: string;
+    promotion: string;
+    campaigns: string[];
+  };
+  takeaway: string;
+  caseSlug?: string;
+};
