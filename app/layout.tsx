@@ -87,6 +87,7 @@ const MOBILE_MENU: MenuGroup[] = [
     links: [
       { href: "/laws", label: "Laws" },
       { href: "/case-studies", label: "Case studies" },
+      { href: "/case-studies/shark-tank-india", label: "Shark Tank India" },
       { href: "/strategies", label: "Strategies" },
       { href: "/industries", label: "Industries" },
       { href: "/benchmarks", label: "Benchmarks" },
@@ -122,6 +123,7 @@ const FOOTER_LINKS: [string, string][] = [
   ["/strategies", "Strategy atlas"],
   ["/industries", "Industry playbooks"],
   ["/case-studies", "Case studies"],
+  ["/case-studies/shark-tank-india", "Shark Tank India"],
   ["/learn", "Free lessons"],
   ["/journeys", "Journeys"],
   ["/benchmarks", "Benchmarks"],

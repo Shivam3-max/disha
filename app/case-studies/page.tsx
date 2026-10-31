@@ -5,8 +5,8 @@ import { CaseStudiesBrowser, type CaseListItem } from "@/components/CaseStudiesB
 export default function CaseStudiesIndex() {
   // Send the browser only what the list needs, not every full story.
   const cases: CaseListItem[] = CASE_STUDIES.map(
-    ({ slug, title, kind, industrySlug, summary, company, country, region, period }) => ({
-      slug, title, kind, industrySlug, summary, company, country, region, period,
+    ({ slug, title, kind, industrySlug, summary, company, country, region, period, collection }) => ({
+      slug, title, kind, industrySlug, summary, company, country, region, period, collection,
     }),
   );
   return <CaseStudiesBrowser cases={cases} industries={INDUSTRIES.map(({ slug, name }) => ({ slug, name }))} />;

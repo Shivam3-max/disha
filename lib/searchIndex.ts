@@ -9,6 +9,7 @@ import { GLOSSARY } from "./glossary";
 import { TEMPLATES } from "./templates";
 import { COMPLIANCE_TOPICS } from "./compliance";
 import { LAWS, LAW_CATEGORIES } from "./laws";
+import { glossarySlug } from "./glossaryDetails";
 
 export type SearchItemType =
   | "Tool"
@@ -70,7 +71,7 @@ function buildIndex(): SearchItem[] {
     items.push({ type: "Case study", title: c.title, description: c.summary, href: `/case-studies/${c.slug}`, keywords: `${c.title} ${c.summary} ${c.kind}` });
   }
   for (const g of GLOSSARY) {
-    items.push({ type: "Glossary", title: g.term, description: g.definition, href: `/glossary?q=${encodeURIComponent(g.term)}`, keywords: `${g.term} ${g.category} ${g.definition}` });
+    items.push({ type: "Glossary", title: g.term, description: g.definition, href: `/glossary/${glossarySlug(g.term)}`, keywords: `${g.term} ${g.category} ${g.definition}` });
   }
   for (const t of TEMPLATES) {
     items.push({ type: "Template", title: t.title, description: t.description, href: `/templates/${t.slug}`, keywords: `${t.title} ${t.category} ${t.description}` });

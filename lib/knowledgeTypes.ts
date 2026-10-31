@@ -111,6 +111,8 @@ export type CaseStudy = {
   drivers?: string[];
   takeaways?: string[];
   lawSlugs?: string[];
+  /** Curated series the case belongs to, shown as its own hub. */
+  collection?: "shark-tank-india";
 };
 
 export type GlossaryCategory = "Finance" | "Marketing" | "Sales" | "Operations" | "People" | "Strategy";
