@@ -1,6 +1,8 @@
 import type { DocTemplate } from "./knowledgeTypes";
+import { TEMPLATES_2 } from "./templates2";
+import { TEMPLATE_GUIDES } from "./templateGuides";
 
-export const TEMPLATES: DocTemplate[] = [
+const TEMPLATES_1: DocTemplate[] = [
   {
     slug: "job-offer-letter",
     title: "Job offer letter",
@@ -240,4 +242,9 @@ export const TEMPLATES: DocTemplate[] = [
       { type: "field", label: "Minutes recorded by" },
     ],
   },
+];
+
+export const TEMPLATES: DocTemplate[] = [
+  ...TEMPLATES_1.map((t) => ({ ...t, guide: t.guide ?? TEMPLATE_GUIDES[t.slug] })),
+  ...TEMPLATES_2,
 ];

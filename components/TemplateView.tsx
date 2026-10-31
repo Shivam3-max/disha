@@ -3,6 +3,28 @@
 import { useState } from "react";
 import type { DocTemplate } from "@/lib/knowledgeTypes";
 
+const escape = (s: string) => s.replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;");
+
+/** Builds a Word-compatible .doc from the template and whatever the user has filled in. */
+function downloadDoc(template: DocTemplate, values: Record<number, string>) {
+  const body = template.blocks
+    .map((b, i) => {
+      if (b.type === "clause") {
+        return `${b.heading ? `<h3>${escape(b.heading)}</h3>` : ""}<p>${escape(b.text)}</p>`;
+      }
+      const v = values[i]?.trim();
+      return `<p><b>${escape(b.label)}:</b> ${v ? escape(v).replace(/\n/g, "<br>") : "____________________"}</p>`;
+    })
+    .join("");
+  const html = `<html><head><meta charset="utf-8"><title>${escape(template.title)}</title></head><body style="font-family:Calibri,Arial,sans-serif;font-size:11pt;line-height:1.5"><h1>${escape(template.title)}</h1>${body}</body></html>`;
+  const url = URL.createObjectURL(new Blob(["\ufeff", html], { type: "application/msword" }));
+  const a = document.createElement("a");
+  a.href = url;
+  a.download = `${template.slug}.doc`;
+  a.click();
+  setTimeout(() => URL.revokeObjectURL(url), 1000);
+}
+
 export function TemplateView({ template }: { template: DocTemplate }) {
   const [values, setValues] = useState<Record<number, string>>({});
 
@@ -49,9 +71,15 @@ export function TemplateView({ template }: { template: DocTemplate }) {
         </div>
       </div>
 
-      <button onClick={() => window.print()} className="no-print btn-ink mt-6 px-6 py-3 font-medium">
-        Print / save as PDF
-      </button>
+      <div className="no-print mt-6 flex flex-wrap gap-3">
+        <button onClick={() => downloadDoc(template, values)} className="btn-ink px-6 py-3 font-medium">
+          Download as Word (.doc)
+        </button>
+        <button onClick={() => window.print()} className="btn-outline px-6 py-3 font-medium">
+          Print / save as PDF
+        </button>
+      </div>
+      <p className="no-print mt-2 text-xs text-ink-faint">Fill in the fields first — your entries are included in the download. Nothing is uploaded.</p>
     </main>
   );
 }
