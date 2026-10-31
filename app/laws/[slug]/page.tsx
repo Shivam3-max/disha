@@ -42,6 +42,7 @@ export default async function LawPage({ params }: { params: Promise<{ slug: stri
   const related = law.related.map(getLaw).filter((l) => l !== undefined);
   const strategies = STRATEGIES.filter((s) => law.strategySlugs?.includes(s.slug));
   const cases = CASE_STUDIES.filter((c) => law.caseStudySlugs?.includes(c.slug));
+  const seenIn = CASE_STUDIES.filter((c) => c.lawSlugs?.includes(law.slug)).slice(0, 6);
 
   const siblings = lawsInCategory(law.category);
   const idx = siblings.findIndex((l) => l.slug === law.slug);
@@ -186,6 +187,26 @@ export default async function LawPage({ params }: { params: Promise<{ slug: stri
           </div>
         </section>
       </article>
+
+      {seenIn.length > 0 && (
+        <section className="mt-12">
+          <h2 className="rule-label mb-3 border-b border-ink pb-2 !text-sm text-ink">
+            {short} in real case studies
+          </h2>
+          <div className="grid gap-4 sm:grid-cols-2">
+            {seenIn.map((c) => (
+              <Link
+                key={c.slug}
+                href={`/case-studies/${c.slug}`}
+                className="ledger-card-flat group p-5 transition-all hover:shadow-[4px_4px_0_0_var(--color-ink)]"
+              >
+                <h3 className="font-display text-lg font-semibold group-hover:text-vermillion">{c.title}</h3>
+                <p className="mt-1.5 text-sm leading-relaxed text-ink-soft">{c.summary}</p>
+              </Link>
+            ))}
+          </div>
+        </section>
+      )}
 
       {related.length > 0 && (
         <section className="mt-12">

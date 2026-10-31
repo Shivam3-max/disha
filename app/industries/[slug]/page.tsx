@@ -30,9 +30,13 @@ export default async function IndustryPage({
   const ind = INDUSTRIES.find((i) => i.slug === slug);
   if (!ind) notFound();
 
-  const caseStudies = ind.caseStudySlugs
+  const curated = ind.caseStudySlugs
     .map((s) => CASE_STUDIES.find((c) => c.slug === s))
     .filter((c): c is NonNullable<typeof c> => !!c);
+  const caseStudies = [
+    ...curated,
+    ...CASE_STUDIES.filter((c) => c.industrySlug === ind.slug && !curated.includes(c)),
+  ].slice(0, 12);
 
   return (
     <main className="mx-auto max-w-3xl px-5 py-14">

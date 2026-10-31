@@ -4,6 +4,7 @@ import { notFound } from "next/navigation";
 import Link from "next/link";
 import { STRATEGIES } from "@/lib/strategies";
 import { INDUSTRIES } from "@/lib/industries";
+import { CASE_STUDIES } from "@/lib/caseStudies";
 import { starterKitHref } from "@/lib/knowledgeTypes";
 
 export function generateStaticParams() {
@@ -31,6 +32,7 @@ export default async function StrategyPage({
   if (!s) notFound();
 
   const relatedIndustries = INDUSTRIES.filter((i) => s.industrySlugs?.includes(i.slug));
+  const cases = CASE_STUDIES.filter((c) => c.strategySlug === s.slug).slice(0, 8);
 
   return (
     <main className="mx-auto max-w-3xl px-5 py-14">
@@ -70,6 +72,24 @@ export default async function StrategyPage({
             {relatedIndustries.map((i) => (
               <Link key={i.slug} href={`/industries/${i.slug}`} className="btn-outline px-4 py-2 text-sm">
                 See it in {i.name} →
+              </Link>
+            ))}
+          </div>
+        </section>
+      )}
+
+      {cases.length > 0 && (
+        <section className="mt-10">
+          <h2 className="rule-label mb-3 border-b border-ink pb-2 !text-sm text-ink">Case studies using this strategy</h2>
+          <div className="grid gap-4 sm:grid-cols-2">
+            {cases.map((c) => (
+              <Link
+                key={c.slug}
+                href={`/case-studies/${c.slug}`}
+                className="ledger-card-flat group p-5 transition-all hover:shadow-[4px_4px_0_0_var(--color-ink)]"
+              >
+                <h3 className="font-display text-lg font-semibold group-hover:text-vermillion">{c.title}</h3>
+                <p className="mt-1.5 text-sm leading-relaxed text-ink-soft">{c.summary}</p>
               </Link>
             ))}
           </div>
